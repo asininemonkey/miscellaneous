@@ -2,25 +2,26 @@
 
 set -ex
 
-TARGET='/Volumes/Macintosh HD' # Post Installation Location: '/System/Volumes/Data/Previous Content'
+SOURCE_FOLDER='/Volumes/Installer'
+TARGET_FOLDER='/Volumes/Macintosh HD' # Post Installation Location: '/System/Volumes/Data/Previous Content'
 
-if curl --connect-timeout 5 --fail --head --location --output '/dev/null' --silent 'http://192.168.144.200/macos/InstallAssistant-13.6.0.pkg'
+if [ -f "${SOURCE_FOLDER}/InstallAssistant.pkg" ]
 then
-  curl --location --output "${TARGET}/InstallAssistant.pkg" 'http://192.168.144.200/macos/InstallAssistant-13.6.0.pkg'
+  cp -v "${SOURCE_FOLDER}/InstallAssistant.pkg" "${TARGET_FOLDER}/InstallAssistant.pkg"
 else
-  curl --location --output "${TARGET}/InstallAssistant.pkg" 'https://swcdn.apple.com/content/downloads/28/01/042-55926-A_7GZJNO2M4I/asqcyheggme9rflzb3z3pr6vbp0gxyk2eh/InstallAssistant.pkg' # macOS v13.6.0
+  curl --location --output "${TARGET_FOLDER}/InstallAssistant.pkg" 'https://swcdn.apple.com/content/downloads/28/01/042-55926-A_7GZJNO2M4I/asqcyheggme9rflzb3z3pr6vbp0gxyk2eh/InstallAssistant.pkg' # macOS v13.6.0
 fi
 
-pkgutil --check-signature "${TARGET}/InstallAssistant.pkg"
+pkgutil --check-signature "${TARGET_FOLDER}/InstallAssistant.pkg"
 
-pkgutil --expand-full "${TARGET}/InstallAssistant.pkg" "${TARGET}/InstallAssistant"
+pkgutil --expand-full "${TARGET_FOLDER}/InstallAssistant.pkg" "${TARGET_FOLDER}/InstallAssistant"
 
-mv "${TARGET}/InstallAssistant/Payload/Applications" "${TARGET}/"
+mv "${TARGET_FOLDER}/InstallAssistant/Payload/Applications" "${TARGET_FOLDER}/"
 
-mkdir "${TARGET}/Applications/Install macOS Ventura.app/Contents/SharedSupport"
+mkdir "${TARGET_FOLDER}/Applications/Install macOS Ventura.app/Contents/SharedSupport"
 
-mv "${TARGET}/InstallAssistant.pkg" "${TARGET}/Applications/Install macOS Ventura.app/Contents/SharedSupport/SharedSupport.dmg"
+mv "${TARGET_FOLDER}/InstallAssistant.pkg" "${TARGET_FOLDER}/Applications/Install macOS Ventura.app/Contents/SharedSupport/SharedSupport.dmg"
 
-rm -fr "${TARGET}/InstallAssistant"
+rm -fr "${TARGET_FOLDER}/InstallAssistant"
 
-"${TARGET}/Applications/Install macOS Ventura.app/Contents/MacOS/InstallAssistant_springboard"
+"${TARGET_FOLDER}/Applications/Install macOS Ventura.app/Contents/MacOS/InstallAssistant_springboard"
