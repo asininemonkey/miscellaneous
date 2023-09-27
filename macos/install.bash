@@ -4,11 +4,11 @@ set -ex
 
 TARGET='/Volumes/Macintosh HD' # Post Installation Location: '/System/Volumes/Data/Previous Content'
 
-if curl --connect-timeout 5 --fail --head --location --output '/dev/null' --silent 'http://192.168.144.200/macos/InstallAssistant-13.5.1.pkg'
+if curl --connect-timeout 5 --fail --head --location --output '/dev/null' --silent 'http://192.168.144.200/macos/InstallAssistant-13.6.0.pkg'
 then
-  curl --location --output "${TARGET}/InstallAssistant.pkg" 'http://192.168.144.200/macos/InstallAssistant-13.5.1.pkg'
+  curl --location --output "${TARGET}/InstallAssistant.pkg" 'http://192.168.144.200/macos/InstallAssistant-13.6.0.pkg'
 else
-  curl --location --output "${TARGET}/InstallAssistant.pkg" 'https://swcdn.apple.com/content/downloads/25/45/042-25643-A_KS23W0LI3U/f93qd41yyv7b4a4jmubqoiq89ldcpl6bbp/InstallAssistant.pkg' # macOS v13.5.1
+  curl --location --output "${TARGET}/InstallAssistant.pkg" 'https://swcdn.apple.com/content/downloads/28/01/042-55926-A_7GZJNO2M4I/asqcyheggme9rflzb3z3pr6vbp0gxyk2eh/InstallAssistant.pkg' # macOS v13.6.0
 fi
 
 pkgutil --check-signature "${TARGET}/InstallAssistant.pkg"
