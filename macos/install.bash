@@ -7,8 +7,10 @@ TARGET_FOLDER='/Volumes/Macintosh HD' # Post Installation Location: '/System/Vol
 
 if [ -f "${SOURCE_FOLDER}/InstallAssistant.pkg" ]
 then
+  echo "Using Local Installer Package..."
   cp -v "${SOURCE_FOLDER}/InstallAssistant.pkg" "${TARGET_FOLDER}/InstallAssistant.pkg"
 else
+  echo "Using Remote Installer Package..."
   curl --location --output "${TARGET_FOLDER}/InstallAssistant.pkg" 'https://swcdn.apple.com/content/downloads/28/01/042-55926-A_7GZJNO2M4I/asqcyheggme9rflzb3z3pr6vbp0gxyk2eh/InstallAssistant.pkg' # macOS v13.6.0
 fi
 
