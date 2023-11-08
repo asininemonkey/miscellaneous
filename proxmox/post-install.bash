@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
-echo 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKYDHpVs4nKaLG+tnLUGH+4Ivnq9ELPW0S3W/uJhxNd/' > /etc/pve/priv/authorized_keys
+SSH_PUBLIC_KEY='ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKYDHpVs4nKaLG+tnLUGH+4Ivnq9ELPW0S3W/uJhxNd/'
+
+if ! grep --silent "${SSH_PUBLIC_KEY}" /etc/pve/priv/authorized_keys
+then
+    echo "${SSH_PUBLIC_KEY}" >> /etc/pve/priv/authorized_keys
+fi
 
 ln --force --symbolic /dev/null ~/.bash_history
 
