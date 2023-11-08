@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKYDHpVs4nKaLG+tnLUGH+4Ivnq9ELPW0S3W/uJhxNd/' >> /etc/pve/priv/authorized_keys
+echo 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKYDHpVs4nKaLG+tnLUGH+4Ivnq9ELPW0S3W/uJhxNd/' > /etc/pve/priv/authorized_keys
 
 ln --force --symbolic /dev/null ~/.bash_history
 
@@ -15,6 +15,6 @@ echo 'deb [signed-by=/usr/share/keyrings/tailscale-archive-keyring.gpg] https://
 apt update
 apt upgrade
 
-sed --in-place '.bak' --null-data --regexp-extended "s/(Ext.Msg.show\(\{\s+title: gettext\('No valid sub)/void\(\{ \/\/\1/g" /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js
+sed --in-place='.bak' --null-data --regexp-extended "s/(Ext.Msg.show\(\{\s+title: gettext\('No valid sub)/void\(\{ \/\/\1/g" /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js
 
 systemctl restart pveproxy.service
