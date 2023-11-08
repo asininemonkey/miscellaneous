@@ -15,4 +15,6 @@ echo 'deb [signed-by=/usr/share/keyrings/tailscale-archive-keyring.gpg] https://
 apt update
 apt upgrade
 
-sed --in-place '.bak' --null-data --regexp-extended "s/(Ext.Msg.show\(\{\s+title: gettext\('No valid sub)/void\(\{ \/\/\1/g" /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js && systemctl restart pveproxy.service
+sed --in-place '.bak' --null-data --regexp-extended "s/(Ext.Msg.show\(\{\s+title: gettext\('No valid sub)/void\(\{ \/\/\1/g" /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js
+
+systemctl restart pveproxy.service
