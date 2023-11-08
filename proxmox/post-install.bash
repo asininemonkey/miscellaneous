@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 echo 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKYDHpVs4nKaLG+tnLUGH+4Ivnq9ELPW0S3W/uJhxNd/' >> /etc/pve/priv/authorized_keys
 
 ln --force --symbolic /dev/null ~/.bash_history
