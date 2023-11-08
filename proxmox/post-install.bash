@@ -17,9 +17,13 @@ echo 'deb http://download.proxmox.com/debian/pve bookworm pve-no-subscription' >
 
 echo 'deb [signed-by=/usr/share/keyrings/tailscale-archive-keyring.gpg] https://pkgs.tailscale.com/stable/debian bookworm main' > /etc/apt/sources.list.d/tailscale.list
 
-apt update
-apt upgrade
+apt-get update
+apt-get upgrade
+
+apt-get --assume-yes install btop jq tailscale
 
 sed --in-place='.bak' --null-data --regexp-extended "s/(Ext.Msg.show\(\{\s+title: gettext\('No valid sub)/void\(\{ \/\/\1/g" /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js
 
 systemctl restart pveproxy.service
+
+tailscale up
