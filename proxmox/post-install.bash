@@ -29,4 +29,22 @@ systemctl restart pveproxy.service
 
 tailscale up
 
-tailscale serve --bg 'https+insecure://127.0.0.1:8006'
+cat << EOF > /etc/systemd/system/tailscale-serve-proxmox.service
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+ExecStart=/usr/bin/tailscale serve https+insecure://127.0.0.1:8006
+ExecStartPre=-/usr/bin/tailscale serve --https 443 off
+ExecStopPost=-/usr/bin/tailscale serve --https 443 off
+Restart=on-failure
+
+[Unit]
+After=network-pre.target NetworkManager.service systemd-resolved.service tailscaled.service
+Description=Tailscale Serve (Proxmox)
+Wants=network-pre.target
+EOF
+
+systemctl daemon-reload
+
+systemctl enable --now tailscale-serve-proxmox.service
