@@ -28,3 +28,5 @@ sed --in-place='.bak' --null-data --regexp-extended "s/(Ext.Msg.show\(\{\s+title
 systemctl restart pveproxy.service
 
 tailscale up
+
+tailscale serve --bg 'https+insecure://127.0.0.1:8006'
