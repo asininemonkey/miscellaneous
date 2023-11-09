@@ -19,8 +19,8 @@ curl --fail --location --output /etc/apt/sources.list.d/tailscale.list --show-er
 curl --fail --location --output /usr/share/keyrings/tailscale-archive-keyring.gpg --show-error --silent 'https://pkgs.tailscale.com/stable/debian/bookworm.noarmor.gpg'
 
 apt-get update
-apt-get upgrade
 
+apt-get --assume-yes upgrade
 apt-get --assume-yes install btop jq tailscale
 
 sed --in-place='.bak' --null-data --regexp-extended "s/(Ext.Msg.show\(\{\s+title: gettext\('No valid sub)/void\(\{ \/\/\1/g" /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js
