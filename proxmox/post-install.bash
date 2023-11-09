@@ -38,6 +38,7 @@ ExecStart=/usr/bin/tailscale serve https+insecure://127.0.0.1:8006
 ExecStartPre=-/usr/bin/tailscale serve --https 443 off
 ExecStopPost=-/usr/bin/tailscale serve --https 443 off
 Restart=on-failure
+RestartSec=5
 
 [Unit]
 After=network-pre.target NetworkManager.service systemd-resolved.service tailscaled.service
