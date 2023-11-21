@@ -4,6 +4,12 @@ ln --force --symbolic /etc/libvirt/qemu/networks/default.xml /etc/libvirt/qemu/n
 
 sed --in-place 's/^#LLMNR.*/LLMNR=no/' /etc/systemd/resolved.conf
 
+su jcardoso --command 'mkdir ~/.ssh'
+su jcardoso --command 'chmod 0700 ~/.ssh'
+
+su jcardoso --command 'echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKYDHpVs4nKaLG+tnLUGH+4Ivnq9ELPW0S3W/uJhxNd/" > ~/.ssh/authorized_keys'
+su jcardoso --command 'chmod 0600 ~/.ssh/authorized_keys'
+
 su jcardoso --command 'systemctl --user enable podman.socket'
 
 cat << EOF > /etc/libvirt/qemu.conf
