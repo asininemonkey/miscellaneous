@@ -29,7 +29,7 @@ systemctl restart pveproxy.service
 
 tailscale up
 
-cat << EOF > /etc/systemd/system/tailscale-serve-proxmox.service
+cat << EOF > /etc/systemd/system/tailscale-serve.service
 [Install]
 WantedBy=multi-user.target
 
@@ -42,10 +42,10 @@ RestartSec=5
 
 [Unit]
 After=network-pre.target NetworkManager.service systemd-resolved.service tailscaled.service
-Description=Tailscale Serve (Proxmox)
+Description=Tailscale Serve
 Wants=network-pre.target
 EOF
 
 systemctl daemon-reload
 
-systemctl enable --now tailscale-serve-proxmox.service
+systemctl enable --now tailscale-serve.service

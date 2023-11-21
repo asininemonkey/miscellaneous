@@ -1,0 +1,152 @@
+{
+    "additional-repositories": [],
+    "archinstall-language": "English",
+    "bootloader": "Systemd-boot",
+    "custom-commands": [
+        "bash <(curl --location --silent 'https://raw.githubusercontent.com/asininemonkey/miscellaneous/main/linux/cockpit/post-install.bash')"
+    ],
+    "config_version": "2.6.3",
+    "debug": false,
+    "disk_config": {
+        "config_type": "manual_partitioning",
+        "device_modifications": [
+            {
+                "device": "/dev/nvme0n1",
+                "partitions": [
+                    {
+                        "btrfs": [],
+                        "dev_path": null,
+                        "flags": [
+                            "Boot",
+                            "ESP"
+                        ],
+                        "fs_type": "fat32",
+                        "mount_options": [],
+                        "mountpoint": "/boot",
+                        "obj_id": "d2596de2-7809-4e08-9098-d0835c816b11",
+                        "size": {
+                            "sector_size": {
+                                "unit": "B",
+                                "value": 512
+                            },
+                            "unit": "MiB",
+                            "value": 512
+                        },
+                        "start": {
+                            "sector_size": {
+                                "unit": "B",
+                                "value": 512
+                            },
+                            "unit": "MiB",
+                            "value": 1
+                        },
+                        "status": "create",
+                        "type": "primary"
+                    },
+                    {
+                        "btrfs": [],
+                        "dev_path": null,
+                        "flags": [],
+                        "fs_type": "ext4",
+                        "mount_options": [],
+                        "mountpoint": "/",
+                        "obj_id": "c70066c5-f13b-4706-a210-be7e8e6b499c",
+                        "size": {
+                            "sector_size": {
+                                "unit": "B",
+                                "value": 512
+                            },
+                            "unit": "B",
+                            "value": 999666966528
+                        },
+                        "start": {
+                            "sector_size": {
+                                "unit": "B",
+                                "value": 512
+                            },
+                            "unit": "MiB",
+                            "value": 513
+                        },
+                        "status": "create",
+                        "type": "primary"
+                    }
+                ],
+                "wipe": true
+            }
+        ]
+    },
+    "hostname": "msi-pro",
+    "kernels": [
+        "linux"
+    ],
+    "locale_config": {
+        "kb_layout": "uk",
+        "sys_enc": "UTF-8",
+        "sys_lang": "en_GB"
+    },
+    "mirror_config": {
+        "custom_mirrors": [],
+        "mirror_regions": {
+            "United Kingdom": [
+                "https://www.mirrorservice.org/sites/ftp.archlinux.org/$repo/os/$arch",
+                "https://repo.slithery.uk/$repo/os/$arch",
+                "https://mirrors.ukfast.co.uk/sites/archlinux.org/$repo/os/$arch",
+                "https://mirrors.melbourne.co.uk/archlinux/$repo/os/$arch",
+                "https://mirror.vinehost.net/archlinux/$repo/os/$arch",
+                "https://mirror.netweaver.uk/archlinux/$repo/os/$arch",
+                "https://london.mirror.pkgbuild.com/$repo/os/$arch",
+                "https://lon.mirror.rackspace.com/archlinux/$repo/os/$arch",
+                "https://archlinux.uk.mirror.allworldit.com/archlinux/$repo/os/$arch"
+            ]
+        }
+    },
+    "network_config": {
+        "nics": [
+            {
+                "dhcp": false,
+                "dns": [
+                    "192.168.144.1"
+                ],
+                "gateway": "192.168.144.1",
+                "iface": "enp2s0",
+                "ip": "192.168.144.220/24"
+            }
+        ],
+        "type": "manual"
+    },
+    "no_pkg_lookups": false,
+    "ntp": true,
+    "offline": false,
+    "packages": [
+        "cockpit",
+        "cockpit-machines",
+        "cockpit-packagekit",
+        "cockpit-pcp",
+        "cockpit-podman",
+        "cockpit-storaged",
+        "dmidecode",
+        "dnsmasq",
+        "nfs-utils",
+        "qemu-audio-spice",
+        "qemu-base",
+        "qemu-block-curl",
+        "qemu-block-nfs",
+        "qemu-chardev-spice",
+        "qemu-hw-usb-redirect",
+        "tailscale",
+        "virt-install"
+    ],
+    "parallel downloads": 0,
+    "script": "guided",
+    "services": [
+        "cockpit.socket",
+        "libvirtd.service",
+        "pmlogger.service",
+        "podman.service",
+        "tailscaled.service"
+    ],
+    "silent": false,
+    "swap": false,
+    "timezone": "Europe/London",
+    "version": "2.6.3"
+}
