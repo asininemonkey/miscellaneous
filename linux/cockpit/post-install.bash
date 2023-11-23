@@ -17,6 +17,20 @@ spice_listen = "msi-pro.fable-blues.ts.net"
 vnc_listen = "msi-pro.fable-blues.ts.net"
 EOF
 
+cat << EOF > /etc/systemd/system/mnt-isos.mount
+[Install]
+  WantedBy=multi-user.target
+
+[Mount]
+  Type=cifs
+  What=//192.168.144.200/iso-images
+  Where=/mnt/isos
+
+[Unit]
+  After=network-online.service
+  Requires=network-online.target
+EOF
+
 cat << EOF > /etc/systemd/system/tailscale-serve.service
 [Install]
 WantedBy=multi-user.target
@@ -34,4 +48,4 @@ Description=Tailscale Serve
 Wants=network-pre.target
 EOF
 
-systemctl enable tailscale-serve.service
+systemctl enable mnt-isos.mount tailscale-serve.service
