@@ -1,12 +1,15 @@
 #!/usr/bin/env bash
 
+KODI="${HOME}/.kodi"
 SERVER="smb://192.168.144.200"
 
 systemctl stop mediacenter.service
 
-mkdir --parents "${HOME}/.kodi/userdata"
+rm --force --recursive "${KODI}"
 
-cat << EOF > "${HOME}/.kodi/userdata/guisettings.xml"
+mkdir --parents "${KODI}/userdata"
+
+cat << EOF > "${KODI}/userdata/guisettings.xml"
 <settings version="2">
     <setting id="audiooutput.guisoundmode">0</setting>
     <setting id="locale.country">UK (12h)</setting>
@@ -15,7 +18,7 @@ cat << EOF > "${HOME}/.kodi/userdata/guisettings.xml"
 </settings>
 EOF
 
-cat << EOF > "${HOME}/.kodi/userdata/sources.xml"
+cat << EOF > "${KODI}/userdata/sources.xml"
 <sources>
     <files>
         <default pathversion="1"></default>
@@ -58,4 +61,4 @@ cat << EOF > "${HOME}/.kodi/userdata/sources.xml"
 </sources>
 EOF
 
-systemctl restart mediacenter.service
+systemctl start mediacenter.service
