@@ -2,6 +2,15 @@
 
 SERVER="smb://192.168.144.200"
 
+cat << EOF > "${HOME}/.kodi/userdata/guisettings.xml"
+<settings version="2">
+    <setting id="audiooutput.guisoundmode">0</setting>
+    <setting id="locale.country">UK (12h)</setting>
+    <setting id="powermanagement.displaysoff">15</setting>
+    <setting id="screensaver.time">1</setting>
+</settings>
+EOF
+
 cat << EOF > "${HOME}/.kodi/userdata/sources.xml"
 <sources>
     <files>
