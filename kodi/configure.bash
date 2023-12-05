@@ -4,6 +4,8 @@ SERVER="smb://192.168.144.200"
 
 systemctl stop mediacenter.service
 
+mkdir --parents "${HOME}/.kodi/userdata"
+
 cat << EOF > "${HOME}/.kodi/userdata/guisettings.xml"
 <settings version="2">
     <setting id="audiooutput.guisoundmode">0</setting>
