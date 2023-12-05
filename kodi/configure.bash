@@ -53,3 +53,5 @@ cat << EOF > "${HOME}/.kodi/userdata/sources.xml"
     </video>
 </sources>
 EOF
+
+systemctl restart mediacenter.service
