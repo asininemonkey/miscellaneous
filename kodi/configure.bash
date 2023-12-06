@@ -11,10 +11,17 @@ mkdir --parents "${KODI}/userdata"
 
 cat << EOF > "${KODI}/userdata/guisettings.xml"
 <settings version="2">
+    <setting id="audiooutput.dtshdpassthrough">true</setting>
+    <setting id="audiooutput.dtspassthrough">true</setting>
+    <setting id="audiooutput.eac3passthrough">true</setting>
     <setting id="audiooutput.guisoundmode">0</setting>
+    <setting id="audiooutput.passthrough">true</setting>
+    <setting id="audiooutput.truehdpassthrough">true</setting>
     <setting id="locale.country">UK (12h)</setting>
     <setting id="powermanagement.displaysoff">15</setting>
     <setting id="screensaver.time">1</setting>
+    <setting id="videolibrary.backgroundupdate">true</setting>
+    <setting id="videoplayer.autoplaynextitem">false</setting>
 </settings>
 EOF
 
