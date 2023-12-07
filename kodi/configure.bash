@@ -56,3 +56,8 @@ cat << EOF > "${KODI}/userdata/sources.xml"
 EOF
 
 systemctl start mediacenter.service
+
+sqlite3 "${KODI}/userdata/Database/MyVideos121.db" "INSERT INTO 'path' VALUES (1,'${SERVER}/media/movies/','movies','metadata.themoviedb.org.python',NULL,2147483647,1,NULL,0,0,0,NULL,NULL);"
+sqlite3 "${KODI}/userdata/Database/MyVideos121.db" "INSERT INTO 'path' VALUES (2,'${SERVER}/media/television/','tvshows','metadata.tvshows.themoviedb.org.python',NULL,0,0,NULL,0,0,0,NULL,NULL);"
+
+kodi-send --action "UpdateLibrary(video)"
