@@ -17,10 +17,11 @@ cat << EOF > "${KODI}/userdata/guisettings.xml"
     <setting id="audiooutput.guisoundmode">0</setting>
     <setting id="audiooutput.passthrough">true</setting>
     <setting id="audiooutput.truehdpassthrough">true</setting>
+    <setting id="bluray.playerregion">2</setting>
     <setting id="locale.country">UK (12h)</setting>
     <setting id="powermanagement.displaysoff">15</setting>
     <setting id="screensaver.time">1</setting>
-    <setting id="videolibrary.backgroundupdate">true</setting>
+    <setting id="videolibrary.updateonstartup">true</setting>
     <setting id="videoplayer.autoplaynextitem">false</setting>
 </settings>
 EOF
