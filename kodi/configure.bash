@@ -65,3 +65,4 @@ sqlite3 "${KODI}/userdata/Database/MyVideos121.db" "INSERT INTO 'path' VALUES (1
 sqlite3 "${KODI}/userdata/Database/MyVideos121.db" "INSERT INTO 'path' VALUES (2,'${SERVER}/media/television/','tvshows','metadata.tvshows.themoviedb.org.python',NULL,0,0,NULL,0,0,0,NULL,NULL);"
 
 kodi-send --action "UpdateLibrary(video)"
+kodi-send --action 'CleanLibrary(video)'
