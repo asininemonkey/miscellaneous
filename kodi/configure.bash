@@ -31,8 +31,7 @@ EOF
 cat << EOF > "${KODI}/userdata/mediasources.xml"
 <mediasources>
     <network>
-        <location id="0">${SERVER}/media</location>
-        <location id="1">${SERVER}/rips</location>
+        <location id="0">${SERVER}</location>
     </network>
 </mediasources>
 EOF
