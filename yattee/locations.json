@@ -3,9 +3,114 @@
     {
       "app": "Piped",
       "region": "Europe",
+      "country": "Finland",
+      "flag": "🇫🇮",
+      "url": "https://api-piped.mha.fi"
+    },
+    {
+      "app": "Piped",
+      "region": "Europe",
       "country": "Germany",
       "flag": "🇩🇪",
       "url": "https://invidious-eu01.yattee.stream"
+    },
+    {
+      "app": "Invidious",
+      "region": "Europe",
+      "country": "Germany",
+      "flag": "🇩🇪",
+      "url": "https://y.com.sb"
+    },
+    {
+      "app": "Invidious",
+      "region": "Europe",
+      "country": "Germany",
+      "flag": "🇩🇪",
+      "url": "https://invidious.nerdvpn.de"
+    },
+    {
+      "app": "Invidious",
+      "region": "Europe",
+      "country": "Greece",
+      "flag": "🇬🇷",
+      "url": "https://invidious.projectsegfau.lt"
+    },
+    {
+      "app": "Piped",
+      "region": "Asia",
+      "country": "India",
+      "flag": "🇮🇳",
+      "url": "https://pipedapi.kavin.rocks"
+    },
+    {
+      "app": "Piped",
+      "region": "Asia",
+      "country": "India",
+      "flag": "🇮🇳",
+      "url": "https://invidious-eu01.yattee.stream"
+    },
+    {
+      "app": "Piped",
+      "region": "Asia",
+      "country": "Japan",
+      "flag": "🇯🇵",
+      "url": "https://invidious-eu01.yattee.stream"
+    },
+    {
+      "app": "Invidious",
+      "region": "Europe",
+      "country": "Netherlands",
+      "flag": "🇳🇱",
+      "url": "https://invidious-eu01.yattee.stream"
+    },
+    {
+      "app": "Invidious",
+      "region": "Europe",
+      "country": "Romania",
+      "flag": "🇷🇴",
+      "url": "https://invidious-eu01.yattee.stream"
+    },
+    {
+      "app": "Piped",
+      "region": "Europe",
+      "country": "United Kingdom",
+      "flag": "🇬🇧",
+      "url": "https://pipedapi.moomoo.me"
+    },
+    {
+      "app": "Piped",
+      "region": "Europe",
+      "country": "United Kingdom",
+      "flag": "🇬🇧",
+      "url": "https://pipedapi.moomoo.me"
+    },
+    {
+      "app": "Invidious",
+      "region": "North America",
+      "country": "United States",
+      "flag": "🇺🇸",
+      "url": "https://vid.puffyan.us"
+    },
+    {
+      "app": "Piped",
+      "region": "North America",
+      "country": "United States",
+      "flag": "🇺🇸",
+      "url": "https://papius.palash.dev"
+    },
+    {
+      "app": "Invidious",
+      "region": "North America",
+      "country": "United States",
+      "flag": "🇺🇸",
+      "url": "https://inv.riverside.rocks"
+    },
+    {
+      "app": "Piped",
+      "region": "North America",
+      "country": "United States",
+      "flag": "🇺🇸",
+      "url": "https://watchapi.whatever.social"
     }
   ]
 }
