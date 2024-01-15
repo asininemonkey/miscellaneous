@@ -1,0 +1,11 @@
+{
+  "instances": [
+     {
+      "app": "Piped",
+      "region": "Europe",
+      "country": "Germany",
+      "flag": "🇩🇪",
+      "url": "https://invidious-eu01.yattee.stream"
+    }
+  ]
+}
