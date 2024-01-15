@@ -8,13 +8,20 @@ TARGET_FOLDER='/Volumes/Macintosh HD' # Post Installation Location: '/System/Vol
 if [ -f "${SOURCE_FOLDER}/InstallAssistant.pkg" ]
 then
   echo "Using Local Installer Package..."
+
   cp -v "${SOURCE_FOLDER}/InstallAssistant.pkg" "${TARGET_FOLDER}/InstallAssistant.pkg"
 else
   echo "Using Remote Installer Package..."
+
   curl \
     --location \
     --output "${TARGET_FOLDER}/InstallAssistant.pkg" \
     'https://swcdn.apple.com/content/downloads/39/23/052-23678-A_2JAGYPGKOM/fq683g64jk3tshaz6rhwhgnlzkzhs1zuae/InstallAssistant.pkg' # macOS v14.2.1 - https://mrmacintosh.com/macos-sonoma-full-installer-database-download-directly-from-apple/
+
+  curl \
+    --location \
+    --output "${TARGET_FOLDER}/InstallAssistant.pkg.integrityDataV1" \
+    'https://swcdn.apple.com/content/downloads/39/23/052-23678-A_2JAGYPGKOM/fq683g64jk3tshaz6rhwhgnlzkzhs1zuae/InstallAssistant.pkg.integrityDataV1'
 fi
 
 pkgutil --check-signature "${TARGET_FOLDER}/InstallAssistant.pkg"
