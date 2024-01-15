@@ -14,7 +14,7 @@ else
   curl \
     --location \
     --output "${TARGET_FOLDER}/InstallAssistant.pkg" \
-    'https://swcdn.apple.com/content/downloads/28/01/042-55926-A_7GZJNO2M4I/asqcyheggme9rflzb3z3pr6vbp0gxyk2eh/InstallAssistant.pkg' # macOS v13.6.0
+    'https://swcdn.apple.com/content/downloads/39/23/052-23678-A_2JAGYPGKOM/fq683g64jk3tshaz6rhwhgnlzkzhs1zuae/InstallAssistant.pkg' # macOS v14.2.1 - https://mrmacintosh.com/macos-sonoma-full-installer-database-download-directly-from-apple/
 fi
 
 pkgutil --check-signature "${TARGET_FOLDER}/InstallAssistant.pkg"
@@ -23,10 +23,10 @@ pkgutil --expand-full "${TARGET_FOLDER}/InstallAssistant.pkg" "${TARGET_FOLDER}/
 
 mv "${TARGET_FOLDER}/InstallAssistant/Payload/Applications" "${TARGET_FOLDER}/"
 
-mkdir "${TARGET_FOLDER}/Applications/Install macOS Ventura.app/Contents/SharedSupport"
+mkdir "${TARGET_FOLDER}/Applications/Install macOS Sonoma.app/Contents/SharedSupport"
 
-mv "${TARGET_FOLDER}/InstallAssistant.pkg" "${TARGET_FOLDER}/Applications/Install macOS Ventura.app/Contents/SharedSupport/SharedSupport.dmg"
+mv "${TARGET_FOLDER}/InstallAssistant.pkg" "${TARGET_FOLDER}/Applications/Install macOS Sonoma.app/Contents/SharedSupport/SharedSupport.dmg"
 
 rm -fr "${TARGET_FOLDER}/InstallAssistant"
 
-"${TARGET_FOLDER}/Applications/Install macOS Ventura.app/Contents/MacOS/InstallAssistant_springboard"
+"${TARGET_FOLDER}/Applications/Install macOS Sonoma.app/Contents/MacOS/InstallAssistant_springboard"
