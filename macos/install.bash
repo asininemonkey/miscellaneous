@@ -16,12 +16,12 @@ else
   curl \
     --location \
     --output "${TARGET_FOLDER}/InstallAssistant.pkg" \
-    'https://swcdn.apple.com/content/downloads/39/23/052-23678-A_2JAGYPGKOM/fq683g64jk3tshaz6rhwhgnlzkzhs1zuae/InstallAssistant.pkg' # macOS v14.2.1 - https://mrmacintosh.com/macos-sonoma-full-installer-database-download-directly-from-apple/
+    'https://swcdn.apple.com/content/downloads/62/31/042-78233-A_YIMC5ZQM8T/yj7iay56cmvc2cux0qm55lfweb2u90euyo/InstallAssistant.pkg' # macOS v14.3.0 - https://mrmacintosh.com/macos-sonoma-full-installer-database-download-directly-from-apple/
 
   curl \
     --location \
     --output "${TARGET_FOLDER}/InstallAssistant.pkg.integrityDataV1" \
-    'https://swcdn.apple.com/content/downloads/39/23/052-23678-A_2JAGYPGKOM/fq683g64jk3tshaz6rhwhgnlzkzhs1zuae/InstallAssistant.pkg.integrityDataV1'
+    'https://swcdn.apple.com/content/downloads/62/31/042-78233-A_YIMC5ZQM8T/yj7iay56cmvc2cux0qm55lfweb2u90euyo/InstallAssistant.pkg.integrityDataV1'
 fi
 
 pkgutil --check-signature "${TARGET_FOLDER}/InstallAssistant.pkg"
