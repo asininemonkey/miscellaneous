@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 mkdir /home/pi/.firewalla/run/docker/firewalla-purple
 
 cat << EOF > /home/pi/.firewalla/run/docker/firewalla-purple/docker-compose.yaml
