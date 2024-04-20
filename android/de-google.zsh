@@ -16,6 +16,7 @@ then
     adb push 'obtainium-export.json' '/sdcard/Download/'
 fi
 
+# adb shell pm list packages | sort
 for PACKAGE in \
     com.android.chrome \
     com.android.egg \
@@ -39,12 +40,15 @@ for PACKAGE in \
     com.google.android.contacts \
     com.google.android.deskclock \
     com.google.android.dialer \
+    com.google.android.health.connect.backuprestore \
+    com.google.android.healthconnect.controller \
     com.google.android.gm \
     com.google.android.googlequicksearchbox \
     com.google.android.ims \
     com.google.android.inputmethod.latin \
     com.google.android.keep \
     com.google.android.marvin.talkback \
+    com.google.android.partnersetup \
     com.google.android.tts \
     com.google.android.videos \
     com.google.android.youtube \
