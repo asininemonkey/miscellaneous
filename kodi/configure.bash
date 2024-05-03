@@ -3,7 +3,7 @@
 set -x
 
 KODI="${HOME}/.kodi"
-SERVER="nfs://192.168.144.200"
+SERVER="nfs://192.168.144.200/data"
 
 systemctl stop mediacenter.service
 
