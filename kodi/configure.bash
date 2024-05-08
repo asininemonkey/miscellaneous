@@ -25,8 +25,8 @@ mkdir --parents "${KODI}/userdata"
 
 cat << EOF > "${KODI}/userdata/guisettings.xml"
 <settings version="2">
-    <setting id="audiooutput.dtshdpassthrough">true</setting>
-    <setting id="audiooutput.dtspassthrough">true</setting>
+    <setting id="audiooutput.dtshdpassthrough">false</setting> <!-- Unsupported on LG CX OLED -->
+    <setting id="audiooutput.dtspassthrough">false</setting> <!-- Unsupported on LG CX OLED -->
     <setting id="audiooutput.eac3passthrough">true</setting>
     <setting id="audiooutput.guisoundmode">0</setting>
     <setting id="audiooutput.passthrough">true</setting>
