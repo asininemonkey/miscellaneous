@@ -30,7 +30,7 @@ cat << EOF > "${KODI}/userdata/guisettings.xml"
     <setting id="audiooutput.eac3passthrough">true</setting>
     <setting id="audiooutput.guisoundmode">0</setting>
     <setting id="audiooutput.passthrough">true</setting>
-    <setting id="audiooutput.truehdpassthrough">true</setting>
+    <setting id="audiooutput.truehdpassthrough">false</setting> <!-- Unsupported on LG CX OLED -->
     <setting id="bluray.playerregion">2</setting>
     <setting id="locale.country">UK (12h)</setting>
     <setting id="powermanagement.displaysoff">15</setting>
