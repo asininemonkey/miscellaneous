@@ -98,7 +98,7 @@
                 "dhcp": true,
                 "dns": [],
                 "gateway": null,
-                "iface": "enp1s0",
+                "iface": "eno1",
                 "ip": null
             }
         ],
