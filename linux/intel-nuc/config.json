@@ -58,7 +58,7 @@
                                 "value": 512
                             },
                             "unit": "GiB",
-                            "value": 2040
+                            "value": 2000
                         },
                         "start": {
                             "sector_size": {
