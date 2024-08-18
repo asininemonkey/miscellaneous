@@ -12,7 +12,7 @@
         "rm --force --recursive /lost+found /paru /paru.tar.zst"
     ],
     "disk_config": {
-        "config_type": "default_layout",
+        "config_type": "manual_partitioning",
         "device_modifications": [
             {
                 "device": "/dev/nvme0n1",
@@ -57,7 +57,7 @@
                                 "unit": "B",
                                 "value": 512
                             },
-                            "unit": "Percent",
+                            "unit": "%",
                             "value": 100
                         },
                         "start": {
