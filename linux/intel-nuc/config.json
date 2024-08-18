@@ -1,0 +1,121 @@
+{
+    "bootloader": "Systemd-boot",
+    "custom-commands": [
+        "curl --location --output /paru.tar.zst https://github.com/morganamilo/paru/releases/download/v2.0.3/paru-v2.0.3-1-x86_64.tar.zst",
+        "tar --directory / --extract --file /paru.tar.zst --zstd paru",
+        "sed --expression 's/ALL$/NOPASSWD: ALL/' --in-place /etc/sudoers.d/00_jcardoso",
+        "su jcardoso --command '/paru --noconfirm --sync k3s-bin paru-bin'",
+        "mkdir /etc/systemd/system/k3s.service.d",
+        "echo -e '[Service]\nExecStart=\nExecStart=/usr/bin/k3s server --disable traefik --disable-helm-controller --node-label intel.feature.node.kubernetes.io/gpu=true --tls-san intel-nuc.fable-blues.ts.net' > /etc/systemd/system/k3s.service.d/override.conf",
+        "systemctl enable k3s",
+        "sed --expression 's/NOPASSWD: //' --in-place /etc/sudoers.d/00_jcardoso",
+        "rm --force --recursive /lost+found /paru /paru.tar.zst"
+    ],
+    "disk_config": {
+        "config_type": "default_layout",
+        "device_modifications": [
+            {
+                "device": "/dev/disk/by-id/nvme-eui.e8238fa6bf530001001b444a46214a70",
+                "partitions": [
+                    {
+                        "dev_path": null,
+                        "flags": [
+                            "Boot",
+                            "ESP"
+                        ],
+                        "fs_type": "fat32",
+                        "mount_options": [],
+                        "mountpoint": "/boot",
+                        "obj_id": "boot",
+                        "size": {
+                            "sector_size": {
+                                "unit": "B",
+                                "value": 512
+                            },
+                            "unit": "MiB",
+                            "value": 1024
+                        },
+                        "start": {
+                            "sector_size": {
+                                "unit": "B",
+                                "value": 512
+                            },
+                            "unit": "MiB",
+                            "value": 8
+                        },
+                        "status": "create",
+                        "type": "primary"
+                    },
+                    {
+                        "dev_path": null,
+                        "fs_type": "ext4",
+                        "mount_options": [],
+                        "mountpoint": "/",
+                        "obj_id": "root",
+                        "size": {
+                            "sector_size": {
+                                "unit": "B",
+                                "value": 512
+                            },
+                            "unit": "GiB",
+                            "value": 2040
+                        },
+                        "start": {
+                            "sector_size": {
+                                "unit": "B",
+                                "value": 512
+                            },
+                            "unit": "MiB",
+                            "value": 1032
+                        },
+                        "status": "create",
+                        "type": "primary"
+                    }
+                ],
+                "wipe": true
+            }
+        ]
+    },
+    "hostname": "intel-nuc",
+    "kernels": [
+        "linux"
+    ],
+    "locale_config": {
+        "kb_layout": "uk",
+        "sys_enc": "UTF-8",
+        "sys_lang": "en_GB"
+    },
+    "mirror_config": {
+        "mirror_regions": {
+            "United Kingdom": [
+                "https://mirror.bytemark.co.uk/archlinux/$repo/os/$arch"
+            ]
+        }
+    },
+    "network_config": {
+        "nics": [
+            {
+                "dhcp": true,
+                "dns": [],
+                "gateway": null,
+                "iface": "enp1s0",
+                "ip": null
+            }
+        ],
+        "type": "manual"
+    },
+    "ntp": true,
+    "packages": [
+        "git",
+        "k9s",
+        "open-iscsi",
+        "openssh",
+        "tailscale"
+    ],
+    "services": [
+        "sshd",
+        "tailscaled"
+    ],
+    "swap": false,
+    "timezone": "Europe/London"
+}
