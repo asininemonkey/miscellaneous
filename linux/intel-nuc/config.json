@@ -15,7 +15,7 @@
         "config_type": "default_layout",
         "device_modifications": [
             {
-                "device": "/dev/disk/by-id/nvme-eui.e8238fa6bf530001001b444a46214a70",
+                "device": "/dev/nvme0n1",
                 "partitions": [
                     {
                         "dev_path": null,
