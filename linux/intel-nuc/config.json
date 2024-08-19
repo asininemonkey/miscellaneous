@@ -6,7 +6,7 @@
         "sed --expression 's/ALL$/NOPASSWD: ALL/' --in-place /etc/sudoers.d/00_jcardoso",
         "su jcardoso --command '/paru --noconfirm --sync k3s-bin paru-bin'",
         "mkdir /etc/systemd/system/k3s.service.d",
-        "echo -e '[Service]\nExecStart=\nExecStart=/usr/bin/k3s server --disable traefik --disable-helm-controller --node-label intel.feature.node.kubernetes.io/gpu=true --tls-san intel-nuc.fable-blues.ts.net' > /etc/systemd/system/k3s.service.d/override.conf",
+        "echo -e '[Service]\nExecStart=\nExecStart=/usr/bin/k3s server --disable traefik --disable-helm-controller --tls-san intel-nuc.fable-blues.ts.net' > /etc/systemd/system/k3s.service.d/override.conf",
         "systemctl enable k3s",
         "sed --expression 's/NOPASSWD: //' --in-place /etc/sudoers.d/00_jcardoso",
         "rm --force --recursive /lost+found /paru /paru.tar.zst"
