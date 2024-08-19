@@ -8,6 +8,7 @@
         "mkdir /etc/systemd/system/k3s.service.d",
         "echo -e '[Service]\nExecStart=\nExecStart=/usr/bin/k3s server --disable traefik --disable-helm-controller --tls-san intel-nuc.fable-blues.ts.net' > /etc/systemd/system/k3s.service.d/override.conf",
         "systemctl enable k3s",
+        "echo 'net.ipv4.tcp_congestion_control = bbr' > /etc/sysctl.d/net_ipv4_tcp_congestion_control.conf",
         "sed --expression 's/NOPASSWD: //' --in-place /etc/sudoers.d/00_jcardoso",
         "rm --force --recursive /lost+found /paru /paru.tar.zst"
     ],
