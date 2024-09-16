@@ -4,7 +4,7 @@
         "curl --location --output /paru.tar.zst https://github.com/morganamilo/paru/releases/download/v2.0.3/paru-v2.0.3-1-x86_64.tar.zst",
         "tar --directory / --extract --file /paru.tar.zst --zstd paru",
         "sed --expression 's/ALL$/NOPASSWD: ALL/' --in-place /etc/sudoers.d/00_jcardoso",
-        "su jcardoso --command '/paru --noconfirm --sync k3s-bin paru-bin'",
+        "su jcardoso --command '/paru --noconfirm --sync k3s-bin networkd-dispatcher paru-bin'",
         "mkdir /etc/systemd/system/k3s.service.d",
         "echo -e '[Service]\nExecStart=\nExecStart=/usr/bin/k3s server --disable traefik --disable-helm-controller --tls-san intel-nuc.fable-blues.ts.net' > /etc/systemd/system/k3s.service.d/override.conf",
         "systemctl enable k3s",
@@ -108,6 +108,7 @@
     },
     "ntp": true,
     "packages": [
+        "ethtool",
         "git",
         "k9s",
         "open-iscsi",
