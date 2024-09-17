@@ -35,10 +35,10 @@ pkgutil --expand-full "${TARGET_FOLDER}/InstallAssistant.pkg" "${TARGET_FOLDER}/
 
 mv "${TARGET_FOLDER}/InstallAssistant/Payload/Applications" "${TARGET_FOLDER}/"
 
-mkdir "${TARGET_FOLDER}/Applications/Install macOS Sonoma.app/Contents/SharedSupport"
+mkdir "${TARGET_FOLDER}/Applications/Install macOS Sequoia.app/Contents/SharedSupport"
 
-mv "${TARGET_FOLDER}/InstallAssistant.pkg" "${TARGET_FOLDER}/Applications/Install macOS Sonoma.app/Contents/SharedSupport/SharedSupport.dmg"
+mv "${TARGET_FOLDER}/InstallAssistant.pkg" "${TARGET_FOLDER}/Applications/Install macOS Sequoia.app/Contents/SharedSupport/SharedSupport.dmg"
 
 rm -fr "${TARGET_FOLDER}/InstallAssistant"
 
-"${TARGET_FOLDER}/Applications/Install macOS Sonoma.app/Contents/MacOS/InstallAssistant_springboard"
+"${TARGET_FOLDER}/Applications/Install macOS Sequoia.app/Contents/MacOS/InstallAssistant_springboard"
