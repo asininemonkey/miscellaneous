@@ -2,6 +2,9 @@
 
 set -ex
 
+# https://mrmacintosh.com/macos-sequoia-full-installer-database-download-directly-from-apple/
+INSTALL_URL='https://swcdn.apple.com/content/downloads/11/43/062-78429-A_DAI7Y9IP98/qxbabjzemiel7guag7q09xxe0631iie45p/InstallAssistant.pkg' # macOS v15.0.0
+
 SOURCE_FOLDER='/Volumes/Installer'
 TARGET_FOLDER='/Volumes/Macintosh HD' # Post Installation Location: '/System/Volumes/Data/Previous Content'
 
@@ -16,12 +19,12 @@ else
   curl \
     --location \
     --output "${TARGET_FOLDER}/InstallAssistant.pkg" \
-    'https://swcdn.apple.com/content/downloads/11/43/062-78429-A_DAI7Y9IP98/qxbabjzemiel7guag7q09xxe0631iie45p/InstallAssistant.pkg' # macOS v15.0.0 - https://mrmacintosh.com/macos-sonoma-full-installer-database-download-directly-from-apple/
+    "${INSTALL_URL}"
 
   curl \
     --location \
     --output "${TARGET_FOLDER}/InstallAssistant.pkg.integrityDataV1" \
-    'https://swcdn.apple.com/content/downloads/11/43/062-78429-A_DAI7Y9IP98/qxbabjzemiel7guag7q09xxe0631iie45p/InstallAssistant.pkg.integrityDataV1'
+    "${INSTALL_URL}.integrityDataV1"
 fi
 
 pkgutil --check-signature "${TARGET_FOLDER}/InstallAssistant.pkg"
