@@ -4,6 +4,7 @@ set -ex
 
 # https://mrmacintosh.com/macos-sequoia-full-installer-database-download-directly-from-apple/
 INSTALL_URL='https://swcdn.apple.com/content/downloads/11/43/062-78429-A_DAI7Y9IP98/qxbabjzemiel7guag7q09xxe0631iie45p/InstallAssistant.pkg' # macOS v15.0.0
+RELEASE_NAME='Sequoia'
 
 SOURCE_FOLDER='/Volumes/Installer'
 TARGET_FOLDER='/Volumes/Macintosh HD' # Post Installation Location: '/System/Volumes/Data/Previous Content'
@@ -35,10 +36,10 @@ pkgutil --expand-full "${TARGET_FOLDER}/InstallAssistant.pkg" "${TARGET_FOLDER}/
 
 mv "${TARGET_FOLDER}/InstallAssistant/Payload/Applications" "${TARGET_FOLDER}/"
 
-mkdir "${TARGET_FOLDER}/Applications/Install macOS Sequoia.app/Contents/SharedSupport"
+mkdir "${TARGET_FOLDER}/Applications/Install macOS ${RELEASE_NAME}.app/Contents/SharedSupport"
 
-mv "${TARGET_FOLDER}/InstallAssistant.pkg" "${TARGET_FOLDER}/Applications/Install macOS Sequoia.app/Contents/SharedSupport/SharedSupport.dmg"
+mv "${TARGET_FOLDER}/InstallAssistant.pkg" "${TARGET_FOLDER}/Applications/Install macOS ${RELEASE_NAME}.app/Contents/SharedSupport/SharedSupport.dmg"
 
 rm -fr "${TARGET_FOLDER}/InstallAssistant"
 
-"${TARGET_FOLDER}/Applications/Install macOS Sequoia.app/Contents/MacOS/InstallAssistant_springboard"
+"${TARGET_FOLDER}/Applications/Install macOS ${RELEASE_NAME}.app/Contents/MacOS/InstallAssistant_springboard"
