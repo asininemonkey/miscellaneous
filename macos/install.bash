@@ -17,11 +17,13 @@ else
   echo "Using Remote Installer Package..."
 
   curl \
+    --continue-at - \
     --location \
     --output "${TARGET_FOLDER}/InstallAssistant.pkg" \
     "${INSTALL_URL}"
 
   curl \
+    --continue-at - \
     --location \
     --output "${TARGET_FOLDER}/InstallAssistant.pkg.integrityDataV1" \
     "${INSTALL_URL}.integrityDataV1"
