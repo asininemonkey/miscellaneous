@@ -6,7 +6,7 @@
         "sed --expression 's/ALL$/NOPASSWD: ALL/' --in-place /etc/sudoers.d/00_jcardoso",
         "su jcardoso --command '/paru --noconfirm --sync k3s-bin networkd-dispatcher paru'",
         "mkdir /etc/systemd/system/k3s.service.d",
-        "echo -e '[Service]\nExecStart=\nExecStart=/usr/bin/k3s server --disable traefik --disable-helm-controller --tls-san intel-nuc.fable-blues.ts.net\n' > /etc/systemd/system/k3s.service.d/override.conf",
+        "echo -e '[Service]\nExecStart=\nExecStart=/usr/bin/k3s server --disable traefik --disable-helm-controller --tls-san 192.168.144.200 --tls-san 100.95.185.73 --tls-san intel-nuc.fable-blues.ts.net\n' > /etc/systemd/system/k3s.service.d/override.conf",
         "echo -e '#!/usr/bin/env sh\nethtool --features eno1 rx-gro-list off rx-udp-gro-forwarding on\n' > /etc/networkd-dispatcher/routable.d/tailscale",
         "chmod 0755 /etc/networkd-dispatcher/routable.d/tailscale",
         "systemctl enable k3s networkd-dispatcher",
