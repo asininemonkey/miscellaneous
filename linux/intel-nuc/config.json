@@ -116,7 +116,8 @@
         "k9s",
         "open-iscsi",
         "openssh",
-        "tailscale"
+        "tailscale",
+        "wireguard-tools"
     ],
     "services": [
         "iscsid",
