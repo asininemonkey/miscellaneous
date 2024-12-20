@@ -13,10 +13,10 @@ PingAddr=
 [General]
 Sources=15
 Tables=0
-Layers=38
+Layers=36
 [Source0]
 Name=CPU temperature
-Units=캜
+Units=째C
 Format=
 Formula=
 Provider=HAL
@@ -65,7 +65,7 @@ Provider=HAL
 ID=RAM usage percent
 [Source7]
 Name=GPU1 temperature
-Units=캜
+Units=째C
 Format=
 Formula=
 Provider=HAL
@@ -120,16 +120,6 @@ Formula=x/1024
 Provider=HAL
 ID=GPU1 total memory
 [Layer0]
-Name=Background
-Text=
-PositionX=0
-PositionY=0
-ExtentX=-31
-ExtentY=-9
-ExtentOrigin=0
-FixedAlignment=1
-BgndColor=E6202020
-[Layer1]
 Name=Time
 Text=%Time24%
 PositionX=0
@@ -139,7 +129,7 @@ ExtentY=-1
 ExtentOrigin=3
 FixedAlignment=1
 Size=75
-[Layer2]
+[Layer1]
 Name=API/Architecture
 Text=<API> <ARCH>
 PositionX=-6
@@ -150,7 +140,7 @@ ExtentOrigin=4
 FixedAlignment=1
 Size=75
 TextColor=E0E0E0
-[Layer3]
+[Layer2]
 Name=Framerate
 Text=%Framerate%
 PositionX=-19
@@ -160,7 +150,7 @@ ExtentY=-1
 ExtentOrigin=5
 FixedAlignment=1
 TextColor=FF0000,,30,FF0000,30,45,FFFF00,45,60,FF8040,60,(Framerate,1)
-[Layer4]
+[Layer3]
 Name=Framerate units
 Text=" FPS"
 PositionX=-25
@@ -171,7 +161,7 @@ ExtentOrigin=3
 FixedAlignment=1
 Size=75
 TextColor=E0E0E0
-[Layer5]
+[Layer4]
 Name=Frametime graph
 Text=<G=Frametime,0,0,1,0,100,0>
 PositionX=0
@@ -181,7 +171,7 @@ ExtentY=-2
 ExtentOrigin=4
 FixedAlignment=1
 TextColor=80C000
-[Layer6]
+[Layer5]
 Name=Framerate 1% Low
 Text=%Framerate 1% Low%
 PositionX=-19
@@ -191,7 +181,7 @@ ExtentY=-1
 ExtentOrigin=5
 FixedAlignment=1
 TextColor=FF0000,,30,FF0000,30,45,FFFF00,45,60,FF8040,60,(Framerate,1)
-[Layer7]
+[Layer6]
 Name=Framerate 1% Low units
 Text=" FPS 1%"
 PositionX=-25
@@ -202,7 +192,7 @@ ExtentOrigin=3
 FixedAlignment=1
 Size=75
 TextColor=E0E0E0
-[Layer8]
+[Layer7]
 Name=Frametime
 Text=%Frametime%
 PositionX=-19
@@ -212,7 +202,7 @@ ExtentY=-1
 ExtentOrigin=5
 FixedAlignment=1
 TextColor=FF0000,,30,FF0000,30,45,FFFF00,45,60,FF8040,60,(Framerate,1)
-[Layer9]
+[Layer8]
 Name=Frametime units
 Text=" ms"
 PositionX=-25
@@ -223,7 +213,7 @@ ExtentOrigin=3
 FixedAlignment=1
 Size=75
 TextColor=E0E0E0
-[Layer10]
+[Layer9]
 Name=GPU name
 Text=%GPU%
 PositionX=-6
@@ -234,7 +224,7 @@ ExtentOrigin=4
 FixedAlignment=1
 Size=75
 TextColor=80C000
-[Layer11]
+[Layer10]
 Name=CPU name
 Text=%CPU%
 PositionX=-19
@@ -245,7 +235,7 @@ ExtentOrigin=4
 FixedAlignment=1
 Size=75
 TextColor=80C0
-[Layer12]
+[Layer11]
 Name=Clock caption
 Text=Clock
 PositionX=0
@@ -256,7 +246,7 @@ ExtentOrigin=3
 FixedAlignment=1
 Size=75
 TextColor=E0E0E0
-[Layer13]
+[Layer12]
 Name=GPU clock
 Text=%GPU1 clock%
 PositionX=-6
@@ -266,7 +256,7 @@ ExtentY=-1
 ExtentOrigin=5
 FixedAlignment=1
 TextColor=80C000
-[Layer14]
+[Layer13]
 Name=GPU clock untis
 Text=" MHz"
 PositionX=-12
@@ -277,7 +267,7 @@ ExtentOrigin=3
 FixedAlignment=1
 Size=75
 TextColor=E0E0E0
-[Layer15]
+[Layer14]
 Name=CPU clock
 Text=%CPU clock%
 PositionX=-19
@@ -287,7 +277,7 @@ ExtentY=-1
 ExtentOrigin=5
 FixedAlignment=1
 TextColor=80C0
-[Layer16]
+[Layer15]
 Name=CPU clock untis
 Text=" MHz"
 PositionX=-25
@@ -298,7 +288,7 @@ ExtentOrigin=3
 FixedAlignment=1
 Size=75
 TextColor=E0E0E0
-[Layer17]
+[Layer16]
 Name=Temp caption
 Text=Temp
 PositionX=0
@@ -309,7 +299,7 @@ ExtentOrigin=3
 FixedAlignment=1
 Size=75
 TextColor=E0E0E0
-[Layer18]
+[Layer17]
 Name=GPU temperature
 Text=%GPU1 temperature%
 PositionX=-6
@@ -319,9 +309,9 @@ ExtentY=-1
 ExtentOrigin=5
 FixedAlignment=1
 TextColor=80C000,,75,FF0000,75,(GPU1 temperature,0)
-[Layer19]
+[Layer18]
 Name=GPU temperature untis
-Text=" 캜"
+Text=" 째C"
 PositionX=-12
 PositionY=-5
 ExtentX=-7
@@ -330,7 +320,7 @@ ExtentOrigin=3
 FixedAlignment=1
 Size=75
 TextColor=E0E0E0
-[Layer20]
+[Layer19]
 Name=CPU temperature
 Text=%CPU temperature%
 PositionX=-19
@@ -340,9 +330,9 @@ ExtentY=-1
 ExtentOrigin=5
 FixedAlignment=1
 TextColor=80C0,,75,FF0000,75,(CPU temperature,0)
-[Layer21]
+[Layer20]
 Name=CPU temperature units
-Text=" 캜"
+Text=" 째C"
 PositionX=-25
 PositionY=-5
 ExtentX=-6
@@ -351,7 +341,7 @@ ExtentOrigin=3
 FixedAlignment=1
 Size=75
 TextColor=E0E0E0
-[Layer22]
+[Layer21]
 Name=Power caption
 Text=Power
 PositionX=0
@@ -362,7 +352,7 @@ ExtentOrigin=3
 FixedAlignment=1
 Size=75
 TextColor=E0E0E0
-[Layer23]
+[Layer22]
 Name=GPU power
 Text=%GPU1 power%
 PositionX=-6
@@ -372,7 +362,7 @@ ExtentY=-1
 ExtentOrigin=5
 FixedAlignment=1
 TextColor=80C000
-[Layer24]
+[Layer23]
 Name=GPU power units
 Text=" Watts"
 PositionX=-12
@@ -383,7 +373,7 @@ ExtentOrigin=3
 FixedAlignment=1
 Size=75
 TextColor=E0E0E0
-[Layer25]
+[Layer24]
 Name=CPU power
 Text=%CPU power%
 PositionX=-19
@@ -393,7 +383,7 @@ ExtentY=-1
 ExtentOrigin=5
 FixedAlignment=1
 TextColor=80C0
-[Layer26]
+[Layer25]
 Name=CPU power units
 Text=" Watts"
 PositionX=-25
@@ -404,7 +394,7 @@ ExtentOrigin=3
 FixedAlignment=1
 Size=75
 TextColor=E0E0E0
-[Layer27]
+[Layer26]
 Name=Usage caption
 Text=Usage
 PositionX=0
@@ -415,7 +405,7 @@ ExtentOrigin=3
 FixedAlignment=1
 Size=75
 TextColor=E0E0E0
-[Layer28]
+[Layer27]
 Name=GPU usage
 Text=%GPU1 usage%
 PositionX=-6
@@ -425,7 +415,7 @@ ExtentY=-1
 ExtentOrigin=5
 FixedAlignment=1
 TextColor=80C000,,75,FF0000,75,(GPU1 usage,0)
-[Layer29]
+[Layer28]
 Name=GPU usage units
 Text=" %"
 PositionX=-12
@@ -436,7 +426,7 @@ ExtentOrigin=3
 FixedAlignment=1
 Size=75
 TextColor=E0E0E0
-[Layer30]
+[Layer29]
 Name=CPU usage
 Text=%CPU usage%
 PositionX=-19
@@ -446,7 +436,7 @@ ExtentY=-1
 ExtentOrigin=5
 FixedAlignment=1
 TextColor=80C0,,75,FF0000,75,(CPU usage,0)
-[Layer31]
+[Layer30]
 Name=CPU usage units
 Text=" %"
 PositionX=-25
@@ -457,7 +447,7 @@ ExtentOrigin=3
 FixedAlignment=1
 Size=75
 TextColor=E0E0E0
-[Layer32]
+[Layer31]
 Name=Memory caption
 Text=Memory
 PositionX=0
@@ -468,7 +458,7 @@ ExtentOrigin=3
 FixedAlignment=1
 Size=75
 TextColor=E0E0E0
-[Layer33]
+[Layer32]
 Name=GPU memory usage
 Text=%GPU1 memory usage%
 PositionX=-6
@@ -478,7 +468,7 @@ ExtentY=-1
 ExtentOrigin=5
 FixedAlignment=1
 TextColor=80C000,,75,FF0000,75,(GPU1 memory usage percent,0)
-[Layer34]
+[Layer33]
 Name=GPU memory units
 Text=" of %GPU1 total memory%GB"
 PositionX=-12
@@ -489,7 +479,7 @@ ExtentOrigin=3
 FixedAlignment=1
 Size=75
 TextColor=E0E0E0
-[Layer35]
+[Layer34]
 Name=RAM usage
 Text=%RAM usage%
 PositionX=-19
@@ -499,7 +489,7 @@ ExtentY=-1
 ExtentOrigin=5
 FixedAlignment=1
 TextColor=80C0,,75,FF0000,75,(RAM usage percent,0)
-[Layer36]
+[Layer35]
 Name=RAM usage units
 Text=" of %Total RAM%GB"
 PositionX=-25
@@ -510,11 +500,3 @@ ExtentOrigin=3
 FixedAlignment=1
 Size=75
 TextColor=E0E0E0
-[Layer37]
-Name=Cursor position placeholder
-Text=" \b"
-PositionX=0
-PositionY=-9
-ExtentX=0
-ExtentY=0
-ExtentOrigin=0
