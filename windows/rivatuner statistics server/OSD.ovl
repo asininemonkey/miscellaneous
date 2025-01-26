@@ -16,7 +16,7 @@ Tables=0
 Layers=35
 [Source0]
 Name=CPU temperature
-Units=캜
+Units=째C
 Format=
 Formula=
 Provider=HAL
@@ -65,7 +65,7 @@ Provider=HAL
 ID=RAM usage percent
 [Source7]
 Name=GPU1 temperature
-Units=캜
+Units=째C
 Format=
 Formula=
 Provider=HAL
@@ -301,7 +301,7 @@ FixedAlignment=1
 TextColor=80C000,,75,FF0000,75,(GPU1 temperature,0)
 [Layer17]
 Name=GPU temperature untis
-Text=" 캜"
+Text=" 째C"
 PositionX=-12
 PositionY=-5
 ExtentX=-7
@@ -322,7 +322,7 @@ FixedAlignment=1
 TextColor=80C0,,75,FF0000,75,(CPU temperature,0)
 [Layer19]
 Name=CPU temperature units
-Text=" 캜"
+Text=" 째C"
 PositionX=-25
 PositionY=-5
 ExtentX=-6
