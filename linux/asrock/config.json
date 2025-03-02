@@ -1,30 +1,29 @@
 {
+  "audio_config": {
+    "audio": "pipewire"
+  },
   "bootloader": "Systemd-boot",
   "custom-commands": [
     "curl --location --output /paru.tar.zst https://github.com/Morganamilo/paru/releases/download/v2.0.4/paru-v2.0.4-x86_64.tar.zst",
     "tar --directory / --extract --file /paru.tar.zst --zstd paru",
     "sed --expression 's/ALL$/NOPASSWD: ALL/' --in-place /etc/sudoers.d/00_jcardoso",
-    "su jcardoso --command '/paru --noconfirm --sync k3s-bin networkd-dispatcher paru'",
-    "mkdir /etc/systemd/system/k3s.service.d",
-    "echo -e '[Service]\nExecStart=\nExecStart=/usr/bin/k3s server --disable traefik --disable-helm-controller --tls-san 192.168.144.200\n' > /etc/systemd/system/k3s.service.d/override.conf",
-    "echo -e '#!/usr/bin/env sh\nethtool --features eno1 rx-gro-list off rx-udp-gro-forwarding on\n' > /etc/networkd-dispatcher/routable.d/tailscale",
-    "chmod 0755 /etc/networkd-dispatcher/routable.d/tailscale",
-    "systemctl enable k3s networkd-dispatcher",
-    "echo 'net.ipv4.ip_forward = 1' > /etc/sysctl.d/net_ipv4_ip_forward.conf",
-    "echo 'net.ipv4.tcp_congestion_control = bbr' > /etc/sysctl.d/net_ipv4_tcp_congestion_control.conf",
-    "echo 'net.ipv6.conf.all.forwarding = 1' > /etc/sysctl.d/net_ipv6_conf_all_forwarding.conf",
-    "sed --expression 's/NOPASSWD: //' --in-place /etc/sudoers.d/00_jcardoso",
-    "rm --force --recursive /lost+found /paru /paru.tar.zst"
+    "su jcardoso --command '/paru --noconfirm --sync 1password paru sublime-merge'",
+    "mkdir /etc/sddm.conf.d",
+    "echo -e '[Theme]\nCurrent=breeze' > /etc/sddm.conf.d/kde_settings.conf",
+    "echo -e '[Icons]\nTheme=Papirus-Dark\n[KDE]\nLookAndFeelPackage=org.kde.breezedark.desktop' > /home/jcardoso/.config/kdeglobals",
+    "chown --recursive jcardoso:jcardoso /home/jcardoso",
+    "usermod --append --groups docker jcardoso"
   ],
   "disk_config": {
-    "config_type": "manual_partitioning",
+    "config_type": "default_layout",
     "device_modifications": [
       {
-        "device": "/dev/nvme0n1",
+        "device": "/dev/nvme1n1",
         "partitions": [
           {
+            "btrfs": [],
             "dev_path": null,
-            "flags": ["Boot", "ESP"],
+            "flags": ["boot", "esp"],
             "fs_type": "fat32",
             "mount_options": [],
             "mountpoint": "/boot",
@@ -34,22 +33,24 @@
                 "unit": "B",
                 "value": 512
               },
-              "unit": "MB",
-              "value": 1024
+              "unit": "GiB",
+              "value": 1
             },
             "start": {
               "sector_size": {
                 "unit": "B",
                 "value": 512
               },
-              "unit": "MB",
-              "value": 8
+              "unit": "MiB",
+              "value": 1
             },
             "status": "create",
             "type": "primary"
           },
           {
+            "btrfs": [],
             "dev_path": null,
+            "flags": [],
             "fs_type": "ext4",
             "mount_options": [],
             "mountpoint": "/",
@@ -59,16 +60,16 @@
                 "unit": "B",
                 "value": 512
               },
-              "unit": "GB",
-              "value": 1800
+              "unit": "B",
+              "value": 999129350144
             },
             "start": {
               "sector_size": {
                 "unit": "B",
                 "value": 512
               },
-              "unit": "MB",
-              "value": 1040
+              "unit": "B",
+              "value": 1074790400
             },
             "status": "create",
             "type": "primary"
@@ -78,7 +79,7 @@
       }
     ]
   },
-  "hostname": "intel-nuc",
+  "hostname": "asrock-x570-linux",
   "kernels": ["linux"],
   "locale_config": {
     "kb_layout": "uk",
@@ -98,28 +99,26 @@
     }
   },
   "network_config": {
-    "nics": [
-      {
-        "dhcp": true,
-        "dns": [],
-        "gateway": null,
-        "iface": "eno1",
-        "ip": null
-      }
-    ],
-    "type": "manual"
+    "type": "nm"
   },
   "ntp": true,
   "packages": [
-    "ethtool",
+    "btop",
+    "docker",
+    "dolphin",
+    "firefox",
+    "fwupd",
+    "ghostty",
     "git",
-    "k9s",
-    "open-iscsi",
-    "openssh",
-    "tailscale",
-    "wireguard-tools"
+    "less",
+    "nvidia-open",
+    "nvidia-utils",
+    "papirus-icon-theme",
+    "plasma",
+    "signal-desktop",
+    "zed"
   ],
-  "services": ["iscsid", "sshd", "tailscaled"],
-  "swap": false,
+  "services": ["docker", "sddm"],
+  "swap": true,
   "timezone": "Europe/London"
 }
