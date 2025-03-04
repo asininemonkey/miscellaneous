@@ -4,4 +4,4 @@ curl --location --output /tmp/paru.tar.zst https://github.com/morganamilo/paru/r
 
 tar --directory /tmp --extract --file /tmp/paru.tar.zst --zstd paru
 
-su jcardoso --command '/tmp/paru --noconfirm --refresh --sync 1password 1password-cli paru sublime-merge'
+su jcardoso --command '/tmp/paru --noconfirm --refresh --sync 1password 1password-cli paru'
