@@ -10,7 +10,7 @@
     "echo -e '[Theme]\nCurrent=breeze' > /etc/sddm.conf.d/kde_settings.conf",
     "echo -e '[Icons]\nTheme=Papirus-Dark\n[KDE]\nLookAndFeelPackage=org.kde.breezedark.desktop' > /home/jcardoso/.config/kdeglobals",
     "chown --recursive jcardoso:jcardoso /home/jcardoso",
-    "usermod --append --groups cups,docker jcardoso"
+    "usermod --append --groups cups,docker --shell /usr/bin/zsh jcardoso"
   ],
   "disk_config": {
     "config_type": "default_layout",
