@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+partprobe
+
 archinstall \
     --config 'https://raw.githubusercontent.com/asininemonkey/miscellaneous/main/linux/asrock/config.json' \
     --creds 'https://raw.githubusercontent.com/asininemonkey/miscellaneous/main/linux/creds.json' \
