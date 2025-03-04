@@ -107,6 +107,7 @@
     "cups-pdf",
     "docker",
     "dolphin",
+    "fastfetch",
     "firefox",
     "fwupd",
     "ghostty",
@@ -123,7 +124,7 @@
     "zed",
     "zsh"
   ],
-  "services": ["cups", "docker", "sddm"],
+  "services": ["cups", "cups-browsed", "docker", "sddm"],
   "swap": true,
   "timezone": "Europe/London"
 }
