@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-partprobe
+partprobe --summary
 
 archinstall \
     --config 'https://raw.githubusercontent.com/asininemonkey/miscellaneous/main/linux/asrock/config.json' \
