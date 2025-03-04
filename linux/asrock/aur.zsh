@@ -6,7 +6,7 @@ curl --location --output /tmp/yay.tar.gz https://github.com/Jguer/yay/releases/d
 
 #tar --directory /tmp --extract --file /tmp/paru.tar.zst --zstd paru
 
-tar --directory /tmp --extract --file /tmp/yay.tar.gz --gzip yay
+tar --directory /tmp --extract --file /tmp/yay.tar.gz --gzip --no-anchored yay
 
 #su jcardoso --command '/tmp/paru --noconfirm --refresh --sync 1password 1password-cli paru'
 
