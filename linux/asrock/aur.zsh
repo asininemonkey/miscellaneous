@@ -10,4 +10,4 @@ tar --directory /tmp --extract --file /tmp/yay.tar.gz --gzip --no-anchored --str
 
 #su jcardoso --command '/tmp/paru --noconfirm --refresh --sync 1password 1password-cli paru'
 
-su jcardoso --command '/tmp/yay --noconfirm --refresh --sync yay'
+su jcardoso --command '/tmp/yay --noconfirm --refresh --sync 1password 1password-cli sublime-merge yay'
