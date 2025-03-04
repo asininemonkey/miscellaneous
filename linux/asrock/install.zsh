@@ -2,6 +2,6 @@
 
 archinstall \
     --config 'https://raw.githubusercontent.com/asininemonkey/miscellaneous/main/linux/asrock/config.json' \
-    --creds 'https://raw.githubusercontent.com/asininemonkey/miscellaneous/main/linux/asrock/creds.json' \
+    --creds 'https://raw.githubusercontent.com/asininemonkey/miscellaneous/main/linux/creds.json' \
     --silent \
     --skip-version-check

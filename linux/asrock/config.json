@@ -4,15 +4,13 @@
   },
   "bootloader": "Systemd-boot",
   "custom-commands": [
-    "curl --location --output /paru.tar.zst https://github.com/Morganamilo/paru/releases/download/v2.0.4/paru-v2.0.4-x86_64.tar.zst",
-    "tar --directory / --extract --file /paru.tar.zst --zstd paru",
     "sed --expression 's/ALL$/NOPASSWD: ALL/' --in-place /etc/sudoers.d/00_jcardoso",
-    "su jcardoso --command '/paru --noconfirm --sync 1password paru sublime-merge'",
+    "zsh <(curl --location --silent https://raw.githubusercontent.com/asininemonkey/miscellaneous/main/linux/asrock/aur.zsh)",
     "mkdir /etc/sddm.conf.d",
     "echo -e '[Theme]\nCurrent=breeze' > /etc/sddm.conf.d/kde_settings.conf",
     "echo -e '[Icons]\nTheme=Papirus-Dark\n[KDE]\nLookAndFeelPackage=org.kde.breezedark.desktop' > /home/jcardoso/.config/kdeglobals",
     "chown --recursive jcardoso:jcardoso /home/jcardoso",
-    "usermod --append --groups docker jcardoso"
+    "usermod --append --groups cups,docker jcardoso"
   ],
   "disk_config": {
     "config_type": "default_layout",
@@ -104,6 +102,9 @@
   "ntp": true,
   "packages": [
     "btop",
+    "cups",
+    "cups-browsed",
+    "cups-pdf",
     "docker",
     "dolphin",
     "firefox",
@@ -116,9 +117,11 @@
     "papirus-icon-theme",
     "plasma",
     "signal-desktop",
-    "zed"
+    "system-config-printer",
+    "zed",
+    "zsh"
   ],
-  "services": ["docker", "sddm"],
+  "services": ["cups", "docker", "sddm"],
   "swap": true,
   "timezone": "Europe/London"
 }
