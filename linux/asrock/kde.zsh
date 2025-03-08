@@ -16,6 +16,14 @@ GreeterEnvironment=QT_WAYLAND_SHELL_INTEGRATION=layer-shell
 CompositorCommand=kwin_wayland --drm --locale1 --no-global-shortcuts --no-lockscreen
 EOF
 
+cat << 'EOF' > /home/jcardoso/.config/kdeglobals
+[Icons]
+Theme=Papirus-Dark
+
+[KDE]
+LookAndFeelPackage=org.kde.breezedark.desktop
+EOF
+
 cat << 'EOF' > /home/jcardoso/.config/kwinoutputconfig.json
 [
     {
