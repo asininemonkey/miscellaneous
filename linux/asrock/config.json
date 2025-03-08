@@ -6,9 +6,7 @@
   "custom-commands": [
     "sed --expression 's/ALL$/NOPASSWD: ALL/' --in-place /etc/sudoers.d/00_jcardoso",
     "zsh <(curl --location --silent https://raw.githubusercontent.com/asininemonkey/miscellaneous/main/linux/asrock/aur.zsh)",
-    "mkdir /etc/sddm.conf.d",
-    "echo -e '[Theme]\nCurrent=breeze' > /etc/sddm.conf.d/kde_settings.conf",
-    "echo -e '[Icons]\nTheme=Papirus-Dark\n[KDE]\nLookAndFeelPackage=org.kde.breezedark.desktop' > /home/jcardoso/.config/kdeglobals",
+    "zsh <(curl --location --silent https://raw.githubusercontent.com/asininemonkey/miscellaneous/main/linux/asrock/kde.zsh)",
     "chown --recursive jcardoso:jcardoso /home/jcardoso",
     "usermod --append --groups cups,docker --shell /usr/bin/zsh jcardoso"
   ],
