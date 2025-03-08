@@ -1,10 +1,8 @@
 {
   "bootloader": "Systemd-boot",
   "custom-commands": [
-    "curl --location --output /paru.tar.zst https://github.com/Morganamilo/paru/releases/download/v2.0.4/paru-v2.0.4-x86_64.tar.zst",
-    "tar --directory / --extract --file /paru.tar.zst --zstd paru",
     "sed --expression 's/ALL$/NOPASSWD: ALL/' --in-place /etc/sudoers.d/00_jcardoso",
-    "su jcardoso --command '/paru --noconfirm --sync k3s-bin networkd-dispatcher paru'",
+    "zsh <(curl --location --silent https://raw.githubusercontent.com/asininemonkey/miscellaneous/main/linux/intel-nuc/aur.zsh)",
     "mkdir /etc/systemd/system/k3s.service.d",
     "echo -e '[Service]\nExecStart=\nExecStart=/usr/bin/k3s server --disable traefik --disable-helm-controller --tls-san 192.168.144.200\n' > /etc/systemd/system/k3s.service.d/override.conf",
     "echo -e '#!/usr/bin/env sh\nethtool --features eno1 rx-gro-list off rx-udp-gro-forwarding on\n' > /etc/networkd-dispatcher/routable.d/tailscale",
@@ -13,8 +11,7 @@
     "echo 'net.ipv4.ip_forward = 1' > /etc/sysctl.d/net_ipv4_ip_forward.conf",
     "echo 'net.ipv4.tcp_congestion_control = bbr' > /etc/sysctl.d/net_ipv4_tcp_congestion_control.conf",
     "echo 'net.ipv6.conf.all.forwarding = 1' > /etc/sysctl.d/net_ipv6_conf_all_forwarding.conf",
-    "sed --expression 's/NOPASSWD: //' --in-place /etc/sudoers.d/00_jcardoso",
-    "rm --force --recursive /lost+found /paru /paru.tar.zst"
+    "sed --expression 's/NOPASSWD: //' --in-place /etc/sudoers.d/00_jcardoso"
   ],
   "disk_config": {
     "config_type": "manual_partitioning",
