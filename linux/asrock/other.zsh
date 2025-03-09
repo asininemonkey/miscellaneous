@@ -17,21 +17,6 @@ window-height = 35
 window-width = 155
 EOF
 
-cat << 'EOF' > /home/jcardoso/.local/share/user-places.xbel
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE xbel>
-<xbel>
- <bookmark href="davs://files.josecardoso.net/">
-  <title>files.josecardoso.net</title>
-  <info>
-   <metadata owner="http://freedesktop.org">
-    <bookmark:icon name="folder-yellow-network"/>
-   </metadata>
-  </info>
- </bookmark>
-</xbel>
-EOF
-
 cat << 'EOF' > /home/jcardoso/.zshrc
 eval "$(oh-my-posh init zsh)"
 EOF
