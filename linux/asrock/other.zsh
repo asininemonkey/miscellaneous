@@ -18,5 +18,5 @@ window-width = 155
 EOF
 
 cat << 'EOF' > /home/jcardoso/.zshrc
-eval "$(oh-my-posh init zsh)"
+eval "$(oh-my-posh init zsh --config https://raw.githubusercontent.com/asininemonkey/miscellaneous/refs/heads/main/oh-my-posh-theme.json)"
 EOF
