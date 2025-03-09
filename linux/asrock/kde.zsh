@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-mkdir --parents /etc/sddm.conf.d
+mkdir --parents /etc/sddm.conf.d /home/jcardoso/.local/share
 
 cat << 'EOF' > /etc/sddm.conf.d/theme.conf
 [Theme]
