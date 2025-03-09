@@ -10,103 +10,103 @@ cat << 'EOF' > /home/jcardoso/.config/fastfetch/config.jsonc
   },
   "logo": {
     "height": 20,
-    "source": "/etc/nixos/logo.png",
+    "source": "/usr/share/archlinux/logos/archlinux-vert-light-grad1.svg",
     "type": "kitty-direct",
     "width": 46
   },
   "modules": [
     {
-      "key": "╭─ 󰌢 ",
+      "key": "╭─ \udb80\udf22 ",
       "keyColor": "red",
       "type": "host"
     },
     {
-      "key": "├─ 󰻠 ",
+      "key": "├─ \udb83\udee0 ",
       "keyColor": "red",
       "type": "cpu"
     },
     {
-      "key": "├─ 󰍛 ",
+      "key": "├─ \udb80\udf5b ",
       "keyColor": "red",
       "type": "gpu"
     },
     {
-      "key": "├─ 󰍹 ",
+      "key": "├─ \udb80\udf79 ",
       "keyColor": "red",
       "type": "display"
     },
     {
-      "key": "├─  ",
+      "key": "├─ \uf0a0 ",
       "keyColor": "red",
       "type": "disk"
     },
     {
-      "key": "╰─ 󰑭 ",
+      "key": "╰─ \udb81\udc6d ",
       "keyColor": "red",
       "type": "memory"
     },
     "break",
     {
-      "key": "╭─  ",
+      "key": "╭─ \uf489 ",
       "keyColor": "green",
       "type": "shell"
     },
     {
-      "key": "├─  ",
+      "key": "├─ \ue795 ",
       "keyColor": "green",
       "type": "terminal"
     },
     {
-      "key": "├─  ",
+      "key": "├─ \ue23c ",
       "keyColor": "green",
       "type": "de"
     },
     {
-      "key": "├─  ",
+      "key": "├─ \uf488 ",
       "keyColor": "green",
       "type": "wm"
     },
     {
-      "key": "├─ 󰧨 ",
+      "key": "├─ \udb82\udde8 ",
       "keyColor": "green",
       "type": "lm"
     },
     {
-      "key": "├─ 󰉼 ",
+      "key": "├─ \udb80\ude7c ",
       "keyColor": "green",
       "type": "theme"
     },
     {
-      "key": "╰─ 󰀻 ",
+      "key": "╰─ \udb80\udc3b ",
       "keyColor": "green",
       "type": "icons"
     },
     "break",
     {
       "format": "{1}@{2}",
-      "key": "╭─  ",
+      "key": "╭─ \uf007 ",
       "keyColor": "blue",
       "type": "title"
     },
     {
-      "key": "├─  ",
+      "key": "├─ \uf303 ",
       "keyColor": "blue",
       "type": "os"
     },
     {
       "format": "{1} {2}",
-      "key": "├─  ",
+      "key": "├─ \uf013 ",
       "keyColor": "blue",
       "type": "kernel"
     },
     {
-      "key": "├─ 󰅐 ",
+      "key": "├─ \udb80\udd50 ",
       "keyColor": "blue",
       "type": "uptime"
     },
     {
       "compact": true,
-      "key": "╰─ 󰩟 ",
+      "key": "╰─ \udb82\ude5f ",
       "keyColor": "blue",
       "type": "localip"
     },
