@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+sed --in-place 's/files myhostname dns/files myhostname mdns_minimal dns/' /etc/nsswitch.conf
+
 mkdir --parents /home/jcardoso/.config/fastfetch /home/jcardoso/.config/ghostty
 
 cat << 'EOF' > /home/jcardoso/.config/fastfetch/config.jsonc
