@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+setfont ter-v12n
+
 partprobe --summary
 
 archinstall \
