@@ -1,0 +1,110 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "background": "#ea3323",
+          "foreground": "#000000",
+          "powerline_symbol": "\ue0b0",
+          "style": "powerline",
+          "template": " {{ if .Env.DEVBOX_SHELL_ENABLED }}\uf489  Devbox{{ end }} ",
+          "type": "text"
+        },
+        {
+          "background": "#ff8b00",
+          "foreground": "#000000",
+          "powerline_symbol": "\ue0b0",
+          "properties": {
+            "time_format": "3:04:05 PM"
+          },
+          "style": "powerline",
+          "template": " \uf017  {{ .CurrentDate | date .Format }} ",
+          "type": "time"
+        },
+        {
+          "background": "#febb26",
+          "foreground": "#000000",
+          "powerline_symbol": "\ue0b0",
+          "style": "powerline",
+          "template": " {{ if .SSHSession }}\ueba9  {{ else }}\uea7a  {{ end }}{{ .UserName }}@{{ .HostName }} ",
+          "type": "session"
+        },
+        {
+          "background": "#1eb253",
+          "foreground": "#000000",
+          "powerline_symbol": "\ue0b0",
+          "properties": {
+            "folder_icon": "\uf115 ",
+            "folder_separator_icon": " \ue0b1 ",
+            "home_icon": "\udb84\udcb6 ",
+            "mapped_locations": {
+              "~/Documents": "\udb86\uddf7 ",
+              "~/Downloads": "\udb84\udce9 ",
+              "~/Music": "\udb84\udf5a ",
+              "~/Pictures": "\udb85\udf8b ",
+              "~/Public": "\udb84\udced ",
+              "~/Source": "\udb83\udd0a ",
+              "~/Templates": "\udb84\udee4 ",
+              "~/Videos": "\udb86\uddfb "
+            },
+            "style": "agnoster"
+          },
+          "style": "powerline",
+          "template": " {{ path .Path .Location }} ",
+          "type": "path"
+        },
+        {
+          "background": "#017cf3",
+          "foreground": "#000000",
+          "properties": {
+            "fetch_status": true,
+            "fetch_upstream_icon": true
+          },
+          "powerline_symbol": "\ue0b0",
+          "style": "powerline",
+          "template": " {{ .UpstreamIcon }} {{ .HEAD }}{{ if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \uf0c7 {{ .StashCount }}{{ end }} ",
+          "type": "git"
+        },
+        {
+          "background": "#9c78fe",
+          "foreground": "#000000",
+          "powerline_symbol": "\ue0b0",
+          "properties": {
+            "context_aliases": {
+              "arn:aws:eks:eu-west-1:1234567890:cluster/posh": "posh"
+            }
+          },
+          "style": "powerline",
+          "template": " \udb84\udcfe  {{ .Context }}{{ if .Namespace }} :: {{ .Namespace }}{{ end }} ",
+          "type": "kubectl"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "foreground_templates": [
+            "{{ if eq .Code 0 }}cyan{{ else }}red{{ end }}"
+          ],
+          "style": "plain",
+          "template": "\u276f ",
+          "type": "text"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "console_title_template": "{{ .Folder }}",
+  "transient_prompt": {
+    "background": "transparent",
+    "foreground_templates": ["{{ if eq .Code 0 }}cyan{{ else }}red{{ end }}"],
+    "template": "\u276f "
+  },
+  "version": 2
+}
