@@ -101,6 +101,7 @@
   },
   "ntp": true,
   "packages": [
+    "android-udev",
     "btop",
     "cups",
     "cups-browsed",
