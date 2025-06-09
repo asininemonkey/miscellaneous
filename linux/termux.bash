@@ -9,6 +9,7 @@ pkg upgrade --yes
 pkg install --yes \
     oh-my-posh \
     openssh \
+    termux-services \
     tree \
     wget
 
@@ -24,3 +25,5 @@ terminal-cursor-blink-rate = 750
 EOF
 
 termux-reload-settings
+
+sv-enable ssh-agent sshd
