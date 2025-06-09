@@ -4,9 +4,9 @@
 
 mkdir --mode 0700 /data/data/com.termux/files/usr/etc/termux/chosen_mirrors
 
-ln --force --symbolic /data/data/com.termux/files/usr/etc/termux/mirrors/europe/mirror.accum.se /data/data/com.termux/files/usr/etc/termux/chosen_mirrors/
+cp /data/data/com.termux/files/usr/etc/termux/mirrors/europe/grimler.se /data/data/com.termux/files/usr/etc/termux/chosen_mirrors/
 
-pkg update
+pkg --check-mirror update
 
 pkg upgrade --yes
 
