@@ -12,8 +12,6 @@ pkg install --yes \
     tree \
     wget
 
-mkdir --mode 0700 ~/.ssh ~/.termux
-
 touch ~/.ssh/id_ed25519 ~/.ssh/id_ed25519.pub
 
 chmod 0400 ~/.ssh/id_*
