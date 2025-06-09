@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+ln --force --symbolic /data/data/com.termux/files/usr/etc/termux/mirrors/europe /data/data/com.termux/files/usr/etc/termux/chosen_mirrors
+
 pkg update
 
 pkg upgrade --yes
