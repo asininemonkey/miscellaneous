@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+#bash <(curl --location --silent https://jmgc.link/termux)
+
 mkdir --mode 0700 /data/data/com.termux/files/usr/etc/termux/chosen_mirrors
 
 ln --force --symbolic /data/data/com.termux/files/usr/etc/termux/mirrors/europe/mirror.accum.se /data/data/com.termux/files/usr/etc/termux/chosen_mirrors/
