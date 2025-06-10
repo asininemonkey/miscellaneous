@@ -40,4 +40,6 @@ sv enable ssh-agent
 eval "$(oh-my-posh init zsh)"
 EOF
 
+termux-reload-settings
+
 zsh
