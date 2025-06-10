@@ -12,6 +12,7 @@ pkg upgrade --yes
 
 pkg install --yes \
     git \
+    mandoc \
     oh-my-posh \
     openssh \
     termux-services \
@@ -37,6 +38,8 @@ EOF
 cat << 'EOF' > ~/.zshrc
 eval "$(oh-my-posh init zsh)"
 EOF
+
+zsh -c exit
 
 zsh -c "sv enable ssh-agent sshd"
 zsh -c "sv status ssh-agent sshd"
