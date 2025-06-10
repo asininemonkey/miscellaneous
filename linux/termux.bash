@@ -32,6 +32,10 @@ hide-soft-keyboard-on-startup = true
 terminal-cursor-blink-rate = 750
 EOF
 
+cat << 'EOF' > ~/.zshrc
+eval "$(oh-my-posh init zsh)"
+EOF
+
 termux-reload-settings
 
 # sv-enable ssh-agent sshd
