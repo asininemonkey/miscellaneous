@@ -36,12 +36,8 @@ terminal-cursor-blink-rate = 750
 EOF
 
 cat << 'EOF' > ~/.zshrc
+sv enable ssh-agent
 eval "$(oh-my-posh init zsh)"
 EOF
-
-zsh -c exit
-
-zsh -c "sv enable ssh-agent sshd"
-zsh -c "sv status ssh-agent sshd"
 
 zsh
