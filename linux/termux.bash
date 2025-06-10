@@ -38,6 +38,7 @@ cat << 'EOF' > ~/.zshrc
 eval "$(oh-my-posh init zsh)"
 EOF
 
-zsh
+zsh -c "sv enable ssh-agent sshd"
+zsh -c "sv status ssh-agent sshd"
 
-# sv-enable ssh-agent sshd
+zsh
