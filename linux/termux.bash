@@ -11,6 +11,7 @@ pkg --check-mirror update
 pkg upgrade --yes
 
 pkg install --yes \
+    git \
     oh-my-posh \
     openssh \
     termux-services \
