@@ -38,6 +38,6 @@ cat << 'EOF' > ~/.zshrc
 eval "$(oh-my-posh init zsh)"
 EOF
 
-termux-reload-settings
+zsh
 
 # sv-enable ssh-agent sshd
