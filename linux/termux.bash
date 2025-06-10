@@ -21,6 +21,8 @@ pkg install --yes \
 
 chsh -s zsh
 
+curl --location --output ~/.termux/font.ttf https://github.com/ryanoasis/nerd-fonts/raw/refs/heads/master/patched-fonts/IosevkaTerm/IosevkaTermNerdFont-Regular.ttf
+
 touch ~/.ssh/id_ed25519 ~/.ssh/id_ed25519.pub
 
 chmod 0400 ~/.ssh/id_*
