@@ -15,7 +15,10 @@ pkg install --yes \
     openssh \
     termux-services \
     tree \
-    wget
+    wget \
+    zsh
+
+chsh -s zsh
 
 touch ~/.ssh/id_ed25519 ~/.ssh/id_ed25519.pub
 
@@ -30,4 +33,4 @@ EOF
 
 termux-reload-settings
 
-sv-enable ssh-agent sshd
+# sv-enable ssh-agent sshd
