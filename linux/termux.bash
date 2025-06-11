@@ -12,6 +12,7 @@ pkg upgrade --yes
 
 pkg install --yes \
     git \
+    htop \
     mandoc \
     oh-my-posh \
     openssh \
@@ -50,6 +51,7 @@ terminal-cursor-blink-rate = 750
 EOF
 
 cat << 'EOF' > ~/.zshrc
+autoload -U compinit && compinit
 eval "$(oh-my-posh init zsh)"
 EOF
 
