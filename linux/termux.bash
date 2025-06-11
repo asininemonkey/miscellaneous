@@ -60,5 +60,3 @@ touch ~/.ssh/id_ed25519 ~/.ssh/id_ed25519.pub
 chmod 0400 ~/.ssh/authorized_keys ~/.ssh/config ~/.ssh/id_*
 
 termux-reload-settings
-
-zsh
