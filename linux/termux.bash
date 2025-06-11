@@ -2,7 +2,7 @@
 
 #bash <(curl --location --silent https://jmgc.link/termux)
 
-mkdir --mode 0700 /data/data/com.termux/files/usr/etc/termux/chosen_mirrors
+mkdir --mode 0700 --parents /data/data/com.termux/files/usr/etc/termux/chosen_mirrors
 
 cp /data/data/com.termux/files/usr/etc/termux/mirrors/europe/grimler.se /data/data/com.termux/files/usr/etc/termux/chosen_mirrors/
 
@@ -24,11 +24,25 @@ chsh -s zsh
 
 curl --location --output ~/.termux/font.ttf https://github.com/ryanoasis/nerd-fonts/raw/refs/heads/master/patched-fonts/IosevkaTerm/IosevkaTermNerdFont-Regular.ttf
 
-touch ~/.ssh/id_ed25519 ~/.ssh/id_ed25519.pub
+cat << 'EOF' > ~/.ssh/authorized_keys
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIQowLl5Bzn87ig+Gs7Ze5kWODRTdHiD+V8sOCwOx16Z
+EOF
 
-chmod 0400 ~/.ssh/id_*
+cat << 'EOF' > ~/.ssh/config
+Host *
+    User jcardoso
 
-cat << EOF > ~/.termux/termux.properties
+Host intel-nuc
+    HostName 192.168.144.200
+
+Host openmediavault
+    HostName 192.168.144.205
+
+Host raspberry-pi-5-16gb-docker
+    HostName 192.168.144.2
+EOF
+
+cat << 'EOF' > ~/.termux/termux.properties
 # https://github.com/termux/termux-tools/blob/master/termux.properties
 extra-keys = []
 hide-soft-keyboard-on-startup = true
@@ -38,6 +52,10 @@ EOF
 cat << 'EOF' > ~/.zshrc
 eval "$(oh-my-posh init zsh)"
 EOF
+
+touch ~/.ssh/id_ed25519 ~/.ssh/id_ed25519.pub
+
+chmod 0400 ~/.ssh/authorized_keys ~/.ssh/config ~/.ssh/id_*
 
 termux-reload-settings
 
