@@ -74,7 +74,7 @@ EOF
 
 cat << 'EOF' > ~/.zshrc
 autoload -U compinit && compinit
-eval "$(oh-my-posh init zsh)"
+eval "$(oh-my-posh init zsh --config https://raw.githubusercontent.com/asininemonkey/miscellaneous/refs/heads/main/linux/oh-my-posh.json)"
 EOF
 
 termux-reload-settings
