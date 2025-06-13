@@ -129,12 +129,13 @@
     "plasma",
     "signal-desktop",
     "system-config-printer",
+    "tailscale",
     "terminus-font",
     "ttf-iosevka-nerd",
     "zed",
     "zsh"
   ],
-  "services": ["cups", "cups-browsed", "docker", "sddm"],
+  "services": ["cups", "cups-browsed", "docker", "sddm", "tailscaled"],
   "swap": true,
   "timezone": "Europe/London"
 }
