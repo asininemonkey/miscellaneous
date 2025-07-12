@@ -1,0 +1,10 @@
+[OSD]
+BaseColor=00FF8000
+BgndColor=00000000
+EnableBgnd=1
+EnableFill=1
+EnableOSD=1
+FillColor=82000000
+ZoomRatio=3
+[Statistics]
+PercentileBuffer=1

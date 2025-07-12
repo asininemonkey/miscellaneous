@@ -1,0 +1,10 @@
+[Plugins]
+HotkeyHandler.dll=1
+OverlayEditor.dll=1
+[Settings]
+FirstRun=0
+StartMinimized=1
+StartWithWindows=1
+UpdateCheckingPeriod=2
+[Shared]
+Flags=00000101
