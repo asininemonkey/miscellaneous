@@ -15,6 +15,7 @@ pkg upgrade --yes
 
 pkg install --yes \
     git \
+    helm \
     htop \
     k9s \
     kubectl \
