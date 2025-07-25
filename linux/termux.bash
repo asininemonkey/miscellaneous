@@ -16,6 +16,8 @@ pkg upgrade --yes
 pkg install --yes \
     git \
     htop \
+    k9s \
+    kubectl \
     mandoc \
     oh-my-posh \
     openssh \
