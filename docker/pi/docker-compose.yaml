@@ -1,0 +1,43 @@
+---
+services:
+  backrest:
+    container_name: backrest
+    environment:                                                        BACKREST_CONFIG: /config/config.json
+      BACKREST_DATA: /data                                              TMPDIR: /tmp
+      TZ: Europe/London                                                 XDG_CACHE_HOME: /cache
+    image: garethgeorge/backrest:v1.9.2 # https://github.com/garethgeorge/backrest/releases                                             ports:
+      - 9898:9898/tcp
+    restart: on-failure
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /srv:/srv:ro
+      - /srv/services/backrest/cache:/cache:rw
+      - /srv/services/backrest/config:/config:rw
+      - /srv/services/backrest/data:/data:rw
+      - /srv/services/backrest/ssh:/root/.ssh:ro
+      - /srv/services/backrest/tmp:/tmp:rw
+  home-assistant:
+    container_name: home-assistant
+    devices:
+      - /dev/ttyUSB0
+    environment:
+      TZ: Europe/London
+    image: ghcr.io/home-assistant/home-assistant:2025.8.3 # https://github.com/home-assistant/core/pkgs/container/home-assistant
+    network_mode: host
+    restart: on-failure
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /run/dbus:/run/dbus:ro
+      - /srv/services/home-assistant:/config:rw
+  netbootxyz:
+    container_name: netbootxyz
+    image: ghcr.io/netbootxyz/netbootxyz:0.7.6-nbxyz7 # https://github.com/netbootxyz/docker-netbootxyz/pkgs/container/netbootxyz
+    ports:
+      - 69:69/udp
+      - 3000:3000/tcp
+      - 3001:80/tcp
+    restart: on-failure
+    volumes:
+      - /srv/services/netbootxyz/assets:/assets:rw
+      - /srv/services/netbootxyz/config:/config:rw
+version: "3.8"
