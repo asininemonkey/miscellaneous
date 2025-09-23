@@ -26,7 +26,7 @@ services:
       - /dev/ttyUSB0
     environment:
       TZ: Europe/London
-    image: ghcr.io/home-assistant/home-assistant:2025.9.3 # https://github.com/home-assistant/core/pkgs/container/home-assistant
+    image: ghcr.io/home-assistant/home-assistant:2025.9.4 # https://github.com/home-assistant/core/pkgs/container/home-assistant
     network_mode: host
     restart: on-failure
     volumes:
