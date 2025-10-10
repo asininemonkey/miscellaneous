@@ -48,16 +48,25 @@ decman.ignored_packages += [
 decman.packages += [
     "btop",
     "docker",
+    "firefox-i18n-en-gb",
     "ghostty",
     "git",
     "man-db",
     "openssh",
+    "signal-desktop",
     "wget",
+    "zed",
 ]
 
 # Niri
 decman.packages += [
+    "fuzzel",
+    "mako",
+    "nautilus",
     "niri",
+    "swaylock",
+    "swww",
+    "waybar",
     "xwayland-satellite",
 ]
 
