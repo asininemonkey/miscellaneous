@@ -15,8 +15,8 @@ lscpu = subprocess.run(
 
 decman.aur_packages += [
     "decman",
-    "paru",
-    "yay",
+    "paru-bin",
+    "yay-bin",
 ]
 
 decman.enabled_systemd_units += [
