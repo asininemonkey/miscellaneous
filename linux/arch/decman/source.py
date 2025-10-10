@@ -44,6 +44,7 @@ decman.ignored_packages += [
 decman.packages += [
     "btop",
     "docker",
+    "ghostty",
     "git",
     "man-db",
     "openssh",
