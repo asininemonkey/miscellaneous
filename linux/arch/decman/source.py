@@ -36,6 +36,7 @@ decman.ignored_packages += [
     "linux",
     "linux-firmware",
     "networkmanager",
+    "yay-debug",
     "zram-generator",
 ]
 
@@ -43,8 +44,8 @@ decman.packages += [
     "btop",
     "docker",
     "git",
-    "openssh",
     "man-db",
+    "openssh",
     "wget",
 ]
 
