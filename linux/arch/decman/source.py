@@ -50,6 +50,10 @@ decman.packages += [
 ]
 
 if re.search("VMware", lscpu.stdout):
+    decman.enabled_systemd_units += [
+        "vmtoolsd.service",
+    ]
+
     decman.packages += [
         "open-vm-tools",
     ]
