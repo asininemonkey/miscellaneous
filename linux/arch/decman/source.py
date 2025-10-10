@@ -33,6 +33,7 @@ decman.ignored_packages += [
     "linux-firmware",
     "networkmanager",
     "yay",
+    "yay-debug",
     "zram-generator",
 ]
 
@@ -42,6 +43,7 @@ decman.packages += [
     "git",
     "openssh",
     "man-db",
+    "paru",
     "wget",
 ]
 
