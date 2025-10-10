@@ -19,7 +19,7 @@ decman.aur_packages += [
     "yay-bin",
 ]
 
-decman.directories["/home/jcardoso/"] = Directory(
+decman.directories["/home/jcardoso/.config"] = Directory(
     owner="jcardoso", source_directory="files/home/.config"
 )
 
