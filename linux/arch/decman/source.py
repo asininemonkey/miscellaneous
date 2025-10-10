@@ -26,20 +26,22 @@ decman.files["/etc/vconsole.conf"] = File(
 
 decman.ignored_packages += [
     "base",
+    "base-devel",
+    "efibootmgr",
     "grub",
     "linux",
     "linux-firmware",
-    "yay-bin",
-    "yay-bin-debug",
+    "networkmanager",
+    "yay",
     "zram-generator",
 ]
 
 decman.packages += [
-    "base-devel",
     "btop",
     "docker",
     "git",
     "openssh",
+    "man-db",
     "wget",
 ]
 
