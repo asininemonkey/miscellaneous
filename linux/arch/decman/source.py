@@ -13,7 +13,11 @@ lscpu = subprocess.run(
     text=True,
 )
 
-decman.aur_packages += ["decman"]
+decman.aur_packages += [
+    "decman",
+    "paru",
+    "yay",
+]
 
 decman.enabled_systemd_units += [
     "docker.service",
@@ -32,8 +36,6 @@ decman.ignored_packages += [
     "linux",
     "linux-firmware",
     "networkmanager",
-    "yay",
-    "yay-debug",
     "zram-generator",
 ]
 
@@ -43,7 +45,6 @@ decman.packages += [
     "git",
     "openssh",
     "man-db",
-    "paru",
     "wget",
 ]
 
