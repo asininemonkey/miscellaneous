@@ -16,6 +16,7 @@ lscpu = subprocess.run(
 decman.aur_packages += [
     "decman",
     "paru-bin",
+    "phinger-cursors",
     "yay-bin",
 ]
 
@@ -48,6 +49,7 @@ decman.ignored_packages += [
 decman.packages += [
     "btop",
     "docker",
+    "fastfetch",
     "firefox-i18n-en-gb",
     "ghostty",
     "git",
