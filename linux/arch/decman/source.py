@@ -40,6 +40,7 @@ decman.ignored_packages += [
     "zram-generator",
 ]
 
+# Miscellaneous
 decman.packages += [
     "btop",
     "docker",
@@ -49,6 +50,13 @@ decman.packages += [
     "wget",
 ]
 
+# Niri
+decman.packages += [
+    "niri",
+    "xwayland-satellite",
+]
+
+# Virtual Machine (VMware)
 if re.search("VMware", lscpu.stdout):
     decman.enabled_systemd_units += [
         "vmtoolsd.service",
