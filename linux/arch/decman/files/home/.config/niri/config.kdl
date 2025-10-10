@@ -1,0 +1,5 @@
+binds {
+  Ctrl+Alt+Delete { quit; }
+  Mod+Q repeat=false { close-window; }
+  Mod+Shift+E { quit; }
+}

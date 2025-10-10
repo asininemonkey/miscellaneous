@@ -4,7 +4,7 @@ import decman
 import re
 import subprocess
 
-from decman import File
+from decman import Directory, File
 
 lscpu = subprocess.run(
     ["lscpu"],
@@ -18,6 +18,10 @@ decman.aur_packages += [
     "paru-bin",
     "yay-bin",
 ]
+
+decman.directories["/home/jcardoso/"] = Directory(
+    owner="jcardoso", source_directory="files/home/.config"
+)
 
 decman.enabled_systemd_units += [
     "docker.service",
