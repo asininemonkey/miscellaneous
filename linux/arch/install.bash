@@ -6,7 +6,7 @@ curl \
   --location \
   --output /tmp/user_configuration.json \
   --silent \
-  https://raw.githubusercontent.com/asininemonkey/miscellaneous/refs/heads/main/linux/arch/user_configuration.json
+  https://raw.githubusercontent.com/asininemonkey/miscellaneous/main/linux/arch/user_configuration.json
 
 if grep --quiet 'NVIDIA' <<< ${LSPCI_OUTPUT}
 then
@@ -34,5 +34,5 @@ partprobe --summary ${DISK}
 
 archinstall \
   --config /tmp/user_configuration.json \
-  --creds-url https://raw.githubusercontent.com/asininemonkey/miscellaneous/refs/heads/main/linux/arch/user_credentials.json \
+  --creds-url https://raw.githubusercontent.com/asininemonkey/miscellaneous/main/linux/arch/user_credentials.json \
   --silent

@@ -4,7 +4,7 @@
   },
   "bootloader": "Systemd-boot",
   "custom_commands": [
-    "bash <(curl --location --silent https://raw.githubusercontent.com/asininemonkey/miscellaneous/refs/heads/main/linux/arch/bootstrap.bash)"
+    "bash <(curl --location --silent https://raw.githubusercontent.com/asininemonkey/miscellaneous/main/linux/arch/bootstrap.bash)"
   ],
   "disk_config": {
     "config_type": "default_layout",
