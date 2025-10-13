@@ -1,0 +1,115 @@
+{
+  "audio_config": {
+    "audio": "pipewire"
+  },
+  "bootloader": "Systemd-boot",
+  "custom_commands": [
+    "bash <(curl --location --silent https://raw.githubusercontent.com/asininemonkey/miscellaneous/refs/heads/main/linux/arch/bootstrap.bash)"
+  ],
+  "disk_config": {
+    "config_type": "default_layout",
+    "device_modifications": [
+      {
+        "device": "xxx_disk_device_xxx",
+        "partitions": [
+          {
+            "dev_path": null,
+            "flags": [
+              "boot",
+              "esp"
+            ],
+            "fs_type": "fat32",
+            "mount_options": [],
+            "mountpoint": "/boot",
+            "obj_id": "boot",
+            "size": {
+              "sector_size": {
+                "unit": "B",
+                "value": 512
+              },
+              "unit": "MiB",
+              "value": 1024
+            },
+            "start": {
+              "sector_size": {
+                "unit": "B",
+                "value": 512
+              },
+              "unit": "MiB",
+              "value": 8
+            },
+            "status": "create",
+            "type": "primary"
+          },
+          {
+            "dev_path": null,
+            "fs_type": "ext4",
+            "mount_options": [],
+            "mountpoint": "/",
+            "obj_id": "root",
+            "size": {
+              "sector_size": {
+                "unit": "B",
+                "value": 512
+              },
+              "unit": "GiB",
+              "value": xxx_disk_size_xxx
+            },
+            "start": {
+              "sector_size": {
+                "unit": "B",
+                "value": 512
+              },
+              "unit": "MiB",
+              "value": 1040
+            },
+            "status": "create",
+            "type": "primary"
+          }
+        ],
+        "wipe": true
+      }
+    ]
+  },
+  "hostname": "xxx_hostname_xxx",
+  "kernels": [
+    "linux"
+  ],
+  "locale_config": {
+    "kb_layout": "uk",
+    "sys_enc": "UTF-8",
+    "sys_lang": "en_GB.UTF-8"
+  },
+  "mirror_config": {
+    "mirror_regions": {
+      "United Kingdom": [
+        "https://lon.mirror.rackspace.com/archlinux/$repo/os/$arch",
+        "https://london.mirror.pkgbuild.com/$repo/os/$arch",
+        "https://mirrors.melbourne.co.uk/archlinux/$repo/os/$arch",
+        "https://mirrors.ukfast.co.uk/sites/archlinux.org/$repo/os/$arch"
+      ]
+    }
+  },
+  "network_config": {
+    "type": "nm"
+  },
+  "ntp": true,
+  "packages": [
+    "xxx_drivers_xxx",
+    "cage",
+    "chezmoi",
+    "docker",
+    "git",
+    "greetd",
+    "greetd-regreet",
+    "openssh"
+  ],
+  "services": [
+    "docker",
+    "greetd",
+    "sshd"
+  ],
+  "swap": true,
+  "timezone": "Europe/London",
+  "version": "3.0.11"
+}
