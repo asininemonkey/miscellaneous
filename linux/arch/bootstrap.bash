@@ -32,7 +32,7 @@ sed --in-place 's/ALL=(ALL)/ALL=(ALL) NOPASSWD:/' /etc/sudoers.d/00_jcardoso
 
 sudo --user jcardoso /tmp/yay --noconfirm --sync paru-bin yay-bin
 
-sudo --user jcardoso chezmoi init asininemonkey --apply
+sudo --user jcardoso chezmoi init asininemonkey --apply --use-builtin-git true
 
 sed --in-place 's/NOPASSWD: //' /etc/sudoers.d/00_jcardoso
 
