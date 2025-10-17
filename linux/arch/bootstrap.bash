@@ -38,4 +38,4 @@ sed --in-place 's/NOPASSWD: //' /etc/sudoers.d/00_jcardoso
 
 chown --recursive jcardoso:jcardoso /home/jcardoso
 
-usermod --append --groups docker jcardoso
+usermod --append --groups docker --shell /usr/bin/zsh jcardoso
