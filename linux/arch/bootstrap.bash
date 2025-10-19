@@ -11,6 +11,22 @@ user = "greeter"
 vt = 1
 EOF
 
+cat << EOF > /etc/greetd/regreet.toml
+[background]
+fit = "Cover"
+# path = ""
+
+[commands]
+poweroff = [ "systemctl", "poweroff" ]
+reboot = [ "systemctl", "reboot" ]
+
+[GTK]
+application_prefer_dark_theme = true
+
+[widget.clock]
+format = "%A, %B %-d, %Y - %-I:%M %P"
+EOF
+
 cat << EOF > /etc/ssh/ssh_known_hosts
 aur.archlinux.org ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBLMiLrP8pVi5BFX2i3vepSUnpedeiewE5XptnUnau+ZoeUOPkpoCgZZuYfpaIQfhhJJI5qgnjJmr4hyJbe/zxow=
 aur.archlinux.org ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEuBKrPzbawxA/k2g6NcyV5jmqwJ2s+zpgZGZ7tpLIcN
