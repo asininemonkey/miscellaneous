@@ -21,6 +21,9 @@ services:
       - /srv/services/backrest/ssh:/root/.ssh:ro
       - /srv/services/backrest/tmp:/tmp:rw
   home-assistant:
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
     container_name: home-assistant
     devices:
       - /dev/ttyUSB0
