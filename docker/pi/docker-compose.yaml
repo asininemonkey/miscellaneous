@@ -26,7 +26,7 @@ services:
       - /dev/ttyUSB0
     environment:
       TZ: Europe/London
-    image: ghcr.io/home-assistant/home-assistant:2025.9.4 # https://github.com/home-assistant/core/pkgs/container/home-assistant
+    image: ghcr.io/home-assistant/home-assistant:2025.10.3 # https://github.com/home-assistant/core/pkgs/container/home-assistant
     network_mode: host
     restart: on-failure
     volumes:
@@ -35,7 +35,7 @@ services:
       - /srv/services/home-assistant:/config:rw
   netbootxyz:
     container_name: netbootxyz
-    image: ghcr.io/netbootxyz/netbootxyz:0.7.6-nbxyz7 # https://github.com/netbootxyz/docker-netbootxyz/pkgs/container/netbootxyz
+    image: ghcr.io/netbootxyz/netbootxyz:0.7.6-nbxyz10 # https://github.com/netbootxyz/docker-netbootxyz/pkgs/container/netbootxyz
     ports:
       - 69:69/udp
       - 3000:3000/tcp
