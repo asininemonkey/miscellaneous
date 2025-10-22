@@ -96,17 +96,11 @@
   "ntp": true,
   "packages": [
     "xxx_drivers_xxx",
-    "cage",
     "chezmoi",
-    "docker",
     "git",
-    "greetd",
-    "greetd-regreet",
     "openssh"
   ],
   "services": [
-    "docker",
-    "greetd",
     "sshd"
   ],
   "swap": true,
