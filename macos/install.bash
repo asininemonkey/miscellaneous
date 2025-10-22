@@ -2,9 +2,9 @@
 
 set -ex
 
-# https://mrmacintosh.com/macos-sequoia-full-installer-database-download-directly-from-apple/
-INSTALL_URL='https://swcdn.apple.com/content/downloads/51/28/082-44432-A_4NJSZXK8G5/v10fo5dlwd50fja3qbnhj7z9tp1dx41vq2/InstallAssistant.pkg' # macOS v15.5.0
-RELEASE_NAME='Sequoia'
+# https://mrmacintosh.com/macos-tahoe-full-installer-database-download-directly-from-apple/
+INSTALL_URL='https://swcdn.apple.com/content/downloads/27/44/093-50844-A_ADFZL6MD5J/3p92a0vzjzewywyitfwajte1w5t8t4pzts/InstallAssistant.pkg' # macOS v26.0.1
+RELEASE_NAME='Tahoe'
 
 SOURCE_FOLDER='/Volumes/Installer'
 TARGET_FOLDER='/Volumes/Macintosh HD' # Post Installation Location: '/System/Volumes/Data/Previous Content'
@@ -31,7 +31,6 @@ else
 fi
 
 pkgutil --check-signature "${TARGET_FOLDER}/InstallAssistant.pkg"
-
 pkgutil --expand-full "${TARGET_FOLDER}/InstallAssistant.pkg" "${TARGET_FOLDER}/InstallAssistant"
 
 mv "${TARGET_FOLDER}/InstallAssistant/Payload/Applications" "${TARGET_FOLDER}/"
