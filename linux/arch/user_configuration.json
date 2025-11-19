@@ -98,9 +98,11 @@
     "xxx_drivers_xxx",
     "chezmoi",
     "git",
+    "iwd",
     "openssh"
   ],
   "services": [
+    "iwd",
     "sshd"
   ],
   "swap": true,
