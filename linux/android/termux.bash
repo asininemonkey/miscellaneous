@@ -11,7 +11,7 @@ fi
 
 pkg --check-mirror update
 
-pkg upgrade --yes
+pkg upgrade -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confnew" --yes
 
 pkg install --yes \
     git \
