@@ -13,7 +13,7 @@ pkg --check-mirror update
 
 pkg upgrade -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confnew" --yes
 
-pkg install --yes \
+pkg install -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confnew" --yes \
     git \
     helm \
     htop \
