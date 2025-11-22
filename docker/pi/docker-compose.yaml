@@ -26,6 +26,7 @@ services:
       - NET_RAW
     container_name: home-assistant
     devices:
+      - /dev/ttyACM0
       - /dev/ttyUSB0
     environment:
       TZ: Europe/London
