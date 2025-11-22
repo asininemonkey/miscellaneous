@@ -27,7 +27,6 @@ services:
     container_name: home-assistant
     devices:
       - /dev/ttyACM0
-      - /dev/ttyUSB0
     environment:
       TZ: Europe/London
     image: ghcr.io/home-assistant/home-assistant:2025.11.3 # https://github.com/home-assistant/core/pkgs/container/home-assistant
