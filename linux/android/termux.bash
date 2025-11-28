@@ -76,7 +76,7 @@ EOF
 
 cat << 'EOF' > ~/.zshrc
 autoload -U compinit && compinit
-eval "$(oh-my-posh init zsh --config https://raw.githubusercontent.com/asininemonkey/miscellaneous/refs/heads/main/linux/oh-my-posh.json)"
+eval "$(oh-my-posh init zsh --config https://raw.githubusercontent.com/jandedobbeleer/oh-my-posh/main/themes/catppuccin.omp.json)"
 EOF
 
 git config --global user.email "65740649+asininemonkey@users.noreply.github.com"
