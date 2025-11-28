@@ -19,13 +19,24 @@ then
   nvme format --force --ses 1 ${DISK}
 fi
 
-if grep --quiet 'Radeon' <<< ${LSPCI_OUTPUT}
+if grep --quiet 'Radeon xxx' <<< ${LSPCI_OUTPUT}
 then
   DISK=$(realpath /dev/disk/by-id/nvme-eui.000000000000000100a075223cdfbdc9)
 
   sed --in-place "s/xxx_disk_size_xxx/256/" /tmp/user_configuration.json
   sed --in-place 's/xxx_drivers_xxx/mesa/' /tmp/user_configuration.json
-  sed --in-place 's/xxx_hostname_xxx/asus-zenbook-15-oled/' /tmp/user_configuration.json
+  sed --in-place 's/xxx_hostname_xxx/asus-zenbook/' /tmp/user_configuration.json
+
+  nvme format --force --ses 1 ${DISK}
+fi
+
+if grep --quiet 'Radeon xxx' <<< ${LSPCI_OUTPUT}
+then
+  DISK=$(realpath /dev/disk/by-id/nvme-eui.e8238fa6bf530001001b444a49b31b6a)
+
+  sed --in-place "s/xxx_disk_size_xxx/256/" /tmp/user_configuration.json
+  sed --in-place 's/xxx_drivers_xxx/mesa/' /tmp/user_configuration.json
+  sed --in-place 's/xxx_hostname_xxx/msi-pro/' /tmp/user_configuration.json
 
   nvme format --force --ses 1 ${DISK}
 fi
