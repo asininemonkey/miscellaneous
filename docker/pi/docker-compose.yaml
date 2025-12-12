@@ -11,7 +11,7 @@ services:
     image: garethgeorge/backrest:v1.10.1 # https://github.com/garethgeorge/backrest/releases
     ports:
       - 9898:9898/tcp
-    restart: on-failure
+    restart: always
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /srv:/srv:ro
@@ -20,6 +20,15 @@ services:
       - /srv/services/backrest/data:/data:rw
       - /srv/services/backrest/ssh:/root/.ssh:ro
       - /srv/services/backrest/tmp:/tmp:rw
+  dufs:
+    command: --allow-all /data
+    container_name: dufs
+    image: sigoden/dufs:v0.45.0 # https://hub.docker.com/r/sigoden/dufs/tags
+    ports:
+      - 5000:5000/tcp
+    restart: always
+    volumes:
+      - /srv/services/dufs:/data:rw
   home-assistant:
     cap_add:
       - NET_ADMIN
@@ -31,7 +40,7 @@ services:
       TZ: Europe/London
     image: ghcr.io/home-assistant/home-assistant:2025.12.2 # https://github.com/home-assistant/core/pkgs/container/home-assistant
     network_mode: host
-    restart: on-failure
+    restart: always
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /run/dbus:/run/dbus:ro
@@ -43,7 +52,7 @@ services:
       - 69:69/udp
       - 3000:3000/tcp
       - 3001:80/tcp
-    restart: on-failure
+    restart: always
     volumes:
       - /srv/services/netbootxyz/assets:/assets:rw
       - /srv/services/netbootxyz/config:/config:rw
