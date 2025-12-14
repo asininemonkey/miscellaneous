@@ -19,7 +19,7 @@ then
   nvme format --force --ses 1 ${DISK}
 fi
 
-if grep --quiet 'Radeon xxx' <<< ${LSPCI_OUTPUT}
+if grep --quiet 'Radeon 680M' <<< ${LSPCI_OUTPUT}
 then
   DISK=$(realpath /dev/disk/by-id/nvme-eui.000000000000000100a075223cdfbdc9)
 
