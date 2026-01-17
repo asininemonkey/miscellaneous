@@ -100,7 +100,8 @@
     "chezmoi",
     "git",
     "iwd",
-    "openssh"
+    "openssh",
+    "zsh"
   ],
   "services": [
     "iwd",
