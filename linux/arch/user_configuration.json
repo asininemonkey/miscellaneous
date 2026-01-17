@@ -43,7 +43,7 @@
           },
           {
             "dev_path": null,
-            "fs_type": "ext4",
+            "fs_type": "btrfs",
             "mount_options": [],
             "mountpoint": "/",
             "obj_id": "root",
