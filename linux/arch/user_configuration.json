@@ -96,6 +96,7 @@
   "ntp": true,
   "packages": [
     "xxx_drivers_xxx",
+    "base-devel",
     "chezmoi",
     "git",
     "iwd",
