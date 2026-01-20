@@ -20,6 +20,15 @@ services:
       - /srv/services/backrest/data:/data:rw
       - /srv/services/backrest/ssh:/root/.ssh:ro
       - /srv/services/backrest/tmp:/tmp:rw
+  dockhand:
+    container_name: dockhand
+    image: fnsys/dockhand:v1.0.11 # https://hub.docker.com/r/fnsys/dockhand/tags
+    ports:
+      - 4000:3000/tcp
+    restart: always
+    volumes:
+      - /srv/services/dockhand:/app/data:rw
+      - /var/run/docker.sock:/var/run/docker.sock:ro
   dufs:
     command: --allow-all /data
     container_name: dufs
