@@ -65,6 +65,14 @@ services:
     volumes:
       - /srv/services/netbootxyz/assets:/assets:rw
       - /srv/services/netbootxyz/config:/config:rw
+  newt:
+    image: fosrl/newt
+    container_name: newt
+    restart: unless-stopped
+    environment:
+      - CONFIG_FILE=/run/secrets/newt
+    secrets:
+      - newt
   whoami:
     cap_add:
       - NET_BIND_SERVICE
@@ -73,4 +81,7 @@ services:
     ports:
       - 80:80/tcp
     restart: always
+secrets:
+  newt:
+    file: /srv/services/newt/secret.json
 version: "3.8"
