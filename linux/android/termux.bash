@@ -48,7 +48,7 @@ Host omv
     HostName 192.168.144.205
 
 Host pi
-    HostName 192.168.144.2
+    HostName 192.168.144.5
 EOF
 
     chmod 0400 ~/.ssh/config
