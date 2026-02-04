@@ -8,7 +8,7 @@ services:
       TMPDIR: /tmp
       TZ: Europe/London
       XDG_CACHE_HOME: /cache
-    image: garethgeorge/backrest:v1.10.1 # https://github.com/garethgeorge/backrest/releases
+    image: garethgeorge/backrest:v1.11.2 # https://github.com/garethgeorge/backrest/releases
     ports:
       - 9898:9898/tcp
     restart: always
@@ -22,7 +22,7 @@ services:
       - /srv/services/backrest/tmp:/tmp:rw
   dockhand:
     container_name: dockhand
-    image: fnsys/dockhand:v1.0.11 # https://hub.docker.com/r/fnsys/dockhand/tags
+    image: fnsys/dockhand:v1.0.14 # https://hub.docker.com/r/fnsys/dockhand/tags
     ports:
       - 4000:3000/tcp
     restart: always
@@ -47,7 +47,7 @@ services:
       - /dev/ttyACM0
     environment:
       TZ: Europe/London
-    image: ghcr.io/home-assistant/home-assistant:2025.12.5 # https://github.com/home-assistant/core/pkgs/container/home-assistant
+    image: ghcr.io/home-assistant/home-assistant:2026.2.0 # https://github.com/home-assistant/core/pkgs/container/home-assistant
     network_mode: host
     restart: always
     volumes:
