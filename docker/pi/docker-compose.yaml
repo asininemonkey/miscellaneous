@@ -22,7 +22,7 @@ services:
       - /srv/services/backrest/tmp:/tmp:rw
   dockhand:
     container_name: dockhand
-    image: fnsys/dockhand:v1.0.21 # https://hub.docker.com/r/fnsys/dockhand/tags
+    image: fnsys/dockhand:v1.0.27 # https://hub.docker.com/r/fnsys/dockhand/tags
     ports:
       - 4000:3000/tcp
     restart: always
@@ -47,7 +47,7 @@ services:
       - /dev/ttyACM0
     environment:
       TZ: Europe/London
-    image: ghcr.io/home-assistant/home-assistant:2026.3.1 # https://github.com/home-assistant/core/pkgs/container/home-assistant
+    image: ghcr.io/home-assistant/home-assistant:2026.4.4 # https://github.com/home-assistant/core/pkgs/container/home-assistant
     network_mode: host
     restart: always
     volumes:
@@ -56,7 +56,7 @@ services:
       - /srv/services/home-assistant:/config:rw
   netbootxyz:
     container_name: netbootxyz
-    image: ghcr.io/netbootxyz/netbootxyz:0.7.6-nbxyz10 # https://github.com/netbootxyz/docker-netbootxyz/pkgs/container/netbootxyz
+    image: ghcr.io/netbootxyz/netbootxyz:0.7.6-nbxyz18 # https://github.com/netbootxyz/docker-netbootxyz/pkgs/container/netbootxyz
     ports:
       - 69:69/udp
       - 3000:3000/tcp
