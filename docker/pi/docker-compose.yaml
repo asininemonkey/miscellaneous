@@ -73,6 +73,3 @@ services:
     ports:
       - 80:80/tcp
     restart: always
-secrets:
-  newt:
-    file: /srv/services/newt/secret.json
