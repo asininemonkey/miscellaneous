@@ -22,7 +22,7 @@ services:
       - /srv/services/backrest/tmp:/tmp:rw
   dockhand:
     container_name: dockhand
-    image: fnsys/dockhand:v1.0.29 # https://hub.docker.com/r/fnsys/dockhand/tags
+    image: fnsys/dockhand:v1.0.33 # https://hub.docker.com/r/fnsys/dockhand/tags
     ports:
       - 4000:3000/tcp
     restart: always
@@ -47,7 +47,7 @@ services:
       - /dev/ttyACM0
     environment:
       TZ: Europe/London
-    image: ghcr.io/home-assistant/home-assistant:2026.5.3 # https://github.com/home-assistant/core/pkgs/container/home-assistant
+    image: ghcr.io/home-assistant/home-assistant:2026.6.3 # https://github.com/home-assistant/core/pkgs/container/home-assistant
     network_mode: host
     restart: always
     volumes:
