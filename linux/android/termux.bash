@@ -89,7 +89,7 @@ if [ ! -f ~/.termux/font.ttf ]
 then
     mkdir --parents ~/.termux
 
-    curl --location --output ~/.termux/font.ttf https://github.com/ryanoasis/nerd-fonts/raw/refs/heads/master/patched-fonts/IosevkaTerm/IosevkaTermNerdFont-Regular.ttf
+    curl --location --output ~/.termux/font.ttf --silent https://github.com/ryanoasis/nerd-fonts/raw/refs/heads/master/patched-fonts/IosevkaTerm/IosevkaTermNerdFont-Regular.ttf
 fi
 
 cat << 'EOF' > ~/.termux/termux.properties
