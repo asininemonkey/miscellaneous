@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# bash <(curl --location --silent https://jmgc.link/termux)
+# bash <(curl --location --silent https://jose.cc/termux)
 
 if [ ! -d /data/data/com.termux/files/usr/etc/termux/chosen_mirrors ]
 then
@@ -29,6 +29,30 @@ pkg install -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-con
 
 chsh -s zsh
 
+if [ ! -f ~/.kube/config ]
+then
+    cat << 'EOF' > ~/.ssh/config
+apiVersion: v1
+clusters:
+  - cluster:
+      server: https://k8s-operator.fable-blues.ts.net
+    name: k8s-operator.fable-blues.ts.net
+contexts:
+  - context:
+      cluster: k8s-operator.fable-blues.ts.net
+      user: tailscale-auth
+    name: k8s-operator.fable-blues.ts.net
+current-context: k8s-operator.fable-blues.ts.net
+kind: Config
+users:
+  - name: tailscale-auth
+    user:
+      token: unused
+EOF
+
+    chmod 0400 ~/.kube/config
+fi
+
 if [ ! -s ~/.ssh/authorized_keys ]
 then
     cat << 'EOF' > ~/.ssh/authorized_keys
@@ -43,6 +67,9 @@ then
     cat << 'EOF' > ~/.ssh/config
 Host *
     User jcardoso
+
+Host nuc
+    HostName 192.168.144.200
 
 Host omv
     HostName 192.168.144.205
@@ -65,6 +92,8 @@ fi
 
 if [ ! -f ~/.termux/font.ttf ]
 then
+    mkdir ~/.termux
+
     curl --location --output ~/.termux/font.ttf https://github.com/ryanoasis/nerd-fonts/raw/refs/heads/master/patched-fonts/IosevkaTerm/IosevkaTermNerdFont-Regular.ttf
 fi
 
