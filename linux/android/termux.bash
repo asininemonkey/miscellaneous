@@ -2,13 +2,6 @@
 
 # bash <(curl --location --silent https://jose.cc/termux)
 
-if [ ! -d /data/data/com.termux/files/usr/etc/termux/chosen_mirrors ]
-then
-    mkdir --mode 0700 /data/data/com.termux/files/usr/etc/termux/chosen_mirrors
-
-    cp /data/data/com.termux/files/usr/etc/termux/mirrors/europe/grimler.se /data/data/com.termux/files/usr/etc/termux/chosen_mirrors/
-fi
-
 pkg --check-mirror update
 
 pkg upgrade -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confnew" --yes
