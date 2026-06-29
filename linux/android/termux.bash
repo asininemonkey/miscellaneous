@@ -24,7 +24,9 @@ chsh -s zsh
 
 if [ ! -f ~/.kube/config ]
 then
-    cat << 'EOF' > ~/.ssh/config
+    mkdir --parents ~/.kube
+
+    cat << 'EOF' > ~/.kube/config
 apiVersion: v1
 clusters:
   - cluster:
@@ -85,7 +87,7 @@ fi
 
 if [ ! -f ~/.termux/font.ttf ]
 then
-    mkdir ~/.termux
+    mkdir --parents ~/.termux
 
     curl --location --output ~/.termux/font.ttf https://github.com/ryanoasis/nerd-fonts/raw/refs/heads/master/patched-fonts/IosevkaTerm/IosevkaTermNerdFont-Regular.ttf
 fi
