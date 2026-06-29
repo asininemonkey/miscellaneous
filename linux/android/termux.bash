@@ -2,7 +2,7 @@
 
 # bash <(curl --location --silent https://jose.cc/termux)
 
-pkg --check-mirror update
+pkg update
 
 pkg upgrade -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confnew" --yes
 
