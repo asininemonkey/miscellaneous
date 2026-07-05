@@ -2,7 +2,11 @@
   "audio_config": {
     "audio": "pipewire"
   },
-  "bootloader": "limine",
+  "bootloader_config": {
+    "bootloader": "Limine",
+    "removable": true,
+    "uki": true
+  },
   "custom_commands": [
     "bash <(curl --location --silent https://raw.githubusercontent.com/asininemonkey/miscellaneous/main/linux/arch/bootstrap.bash)"
   ],
@@ -76,6 +80,7 @@
     "linux"
   ],
   "locale_config": {
+    "console_font": "default8x16",
     "kb_layout": "uk",
     "sys_enc": "UTF-8",
     "sys_lang": "en_GB.UTF-8"
@@ -108,7 +113,10 @@
     "iwd",
     "sshd"
   ],
-  "swap": true,
+  "swap": {
+    "algorithm": "zstd",
+    "enabled": true
+  },
   "timezone": "Europe/London",
-  "version": "3.0.15"
+  "version": "4.4"
 }
