@@ -85,7 +85,7 @@
     "linux"
   ],
   "locale_config": {
-    "console_font": "default8x16",
+    "console_font": "ter-v32n",
     "kb_layout": "uk",
     "sys_enc": "UTF-8",
     "sys_lang": "en_GB.UTF-8"
