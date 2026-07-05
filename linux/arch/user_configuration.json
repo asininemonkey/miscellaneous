@@ -112,6 +112,7 @@
     "iwd",
     "jq",
     "openssh",
+    "terminus-font",
     "zsh"
   ],
   "services": [
