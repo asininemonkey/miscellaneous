@@ -4,7 +4,7 @@
   },
   "bootloader_config": {
     "bootloader": "Limine",
-    "removable": true,
+    "removable": false,
     "uki": true
   },
   "custom_commands": [
