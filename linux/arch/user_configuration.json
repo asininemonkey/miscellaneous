@@ -11,6 +11,11 @@
     "bash <(curl --location --silent https://raw.githubusercontent.com/asininemonkey/miscellaneous/main/linux/arch/bootstrap.bash)"
   ],
   "disk_config": {
+    "btrfs_options": {
+      "snapshot_config": {
+        "type": "Snapper"
+      }
+    },
     "config_type": "default_layout",
     "device_modifications": [
       {
@@ -96,7 +101,7 @@
     }
   },
   "network_config": {
-    "type": "nm"
+    "type": "iso"
   },
   "ntp": true,
   "packages": [
