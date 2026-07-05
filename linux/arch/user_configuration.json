@@ -2,7 +2,7 @@
   "audio_config": {
     "audio": "pipewire"
   },
-  "bootloader": "Systemd-boot",
+  "bootloader": "limine",
   "custom_commands": [
     "bash <(curl --location --silent https://raw.githubusercontent.com/asininemonkey/miscellaneous/main/linux/arch/bootstrap.bash)"
   ],
