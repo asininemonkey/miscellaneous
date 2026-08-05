@@ -20,4 +20,6 @@ pkg install -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-con
     git \
     termux-services
 
+rm /data/data/com.termux/files/usr/var/service/ssh-agent/down
+
 termux-reload-settings
