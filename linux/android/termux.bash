@@ -16,16 +16,14 @@ pkg update
 pkg upgrade -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confnew" --yes
 
 pkg install -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confnew" --yes \
+    x11-repo
+
+pkg install -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confnew" --yes \
     chezmoi \
     git \
+    termux-x11-nightly \
     termux-services
 
 rm --force /data/data/com.termux/files/usr/var/service/ssh-agent/down
 
 termux-reload-settings
-
-echo 'Exiting in 3 seconds...'
-
-sleep 3
-
-exit
