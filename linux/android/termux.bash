@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-mkdir --parents /data/data/com.termux/files/usr/etc/termux
+if [ ! -d /data/data/com.termux/files/usr/etc/termux/chosen_mirrors ]
+then
+    mkdir --mode 0700 --parents /data/data/com.termux/files/usr/etc/termux
+fi
 
 cat << EOF > /data/data/com.termux/files/usr/etc/termux/chosen_mirrors
 WEIGHT=10
@@ -15,6 +18,7 @@ pkg upgrade -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-con
 
 pkg install -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confnew" --yes \
     chezmoi \
-    git
+    git \
+    termux-services
 
 termux-reload-settings
