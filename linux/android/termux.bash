@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-if [ ! -d /data/data/com.termux/files/usr/etc/termux/chosen_mirrors ]
-then
-    mkdir --mode 0700 --parents /data/data/com.termux/files/usr/etc/termux
-fi
+# if [ ! -d /data/data/com.termux/files/usr/etc/termux ]
+# then
+#     mkdir --mode 0700 --parents /data/data/com.termux/files/usr/etc/termux
+# fi
 
 cat << EOF > /data/data/com.termux/files/usr/etc/termux/chosen_mirrors
 WEIGHT=10
