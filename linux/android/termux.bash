@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
-# if [ ! -d /data/data/com.termux/files/usr/etc/termux ]
-# then
-#     mkdir --mode 0700 --parents /data/data/com.termux/files/usr/etc/termux
-# fi
+curl --location --output /data/data/com.termux/files/home/.termux/font.ttf https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/IosevkaTerm/IosevkaTermNerdFont-Regular.ttf
+
+termux-reload-settings
 
 cat << EOF > /data/data/com.termux/files/usr/etc/termux/chosen_mirrors
 WEIGHT=10
