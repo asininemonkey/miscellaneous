@@ -37,7 +37,7 @@ services:
     container_name: dufs
     image: sigoden/dufs:v0.46.0 # https://hub.docker.com/r/sigoden/dufs/tags
     ports:
-      - 5000:5000/tcp
+      - 80:5000/tcp
     restart: always
     volumes:
       - /srv/services/dufs:/data:rw
@@ -74,5 +74,5 @@ services:
     container_name: whoami
     image: traefik/whoami:v1.12.0 # https://hub.docker.com/r/traefik/whoami/tags
     ports:
-      - 80:80/tcp
+      - 8080:80/tcp
     restart: always
