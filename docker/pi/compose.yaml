@@ -33,7 +33,7 @@ services:
   #     - /srv/services/dockhand:/app/data:rw
   #     - /var/run/docker.sock:/var/run/docker.sock:ro
   dufs:
-    command: --allow-all /data --render-try-index --tls-cert /data/dufs-cert.pem --tls-key data/dufs-key.pem
+    command: --allow-all /data --render-try-index --tls-cert /data/dufs-cert.pem --tls-key /data/dufs-key.pem
     container_name: dufs
     image: sigoden/dufs:v0.46.0 # https://hub.docker.com/r/sigoden/dufs/tags
     ports:
