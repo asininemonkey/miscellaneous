@@ -20,18 +20,6 @@ services:
       - /srv/services/backrest/data:/data:rw
       - /srv/services/backrest/ssh:/root/.ssh:ro
       - /srv/services/backrest/tmp:/tmp:rw
-  # dockhand:
-  #   container_name: dockhand
-  #   environment:
-  #     # https://dockhand.pro/manual/#environment-variables
-  #     DISABLE_WHATS_NEW: true
-  #   image: fnsys/dockhand:v1.0.48 # https://hub.docker.com/r/fnsys/dockhand/tags
-  #   ports:
-  #     - 4000:3000/tcp
-  #   restart: always
-  #   volumes:
-  #     - /srv/services/dockhand:/app/data:rw
-  #     - /var/run/docker.sock:/var/run/docker.sock:ro
   dufs:
     command: --allow-all /data --render-try-index --tls-cert /data/dufs-cert.pem --tls-key /data/dufs-key.pem
     container_name: dufs
@@ -50,7 +38,7 @@ services:
       - /dev/ttyACM0
     environment:
       TZ: Europe/London
-    image: ghcr.io/home-assistant/home-assistant:2026.9.2 # https://github.com/home-assistant/core/pkgs/container/home-assistant
+    image: ghcr.io/home-assistant/home-assistant:2026.9.4 # https://github.com/home-assistant/core/pkgs/container/home-assistant
     network_mode: host
     restart: always
     volumes:
@@ -68,11 +56,3 @@ services:
     volumes:
       - /srv/services/netbootxyz/assets:/assets:rw
       - /srv/services/netbootxyz/config:/config:rw
-  whoami:
-    cap_add:
-      - NET_BIND_SERVICE
-    container_name: whoami
-    image: traefik/whoami:v1.12.0 # https://hub.docker.com/r/traefik/whoami/tags
-    ports:
-      - 8080:80/tcp
-    restart: always
