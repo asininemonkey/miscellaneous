@@ -1,0 +1,116 @@
+{
+  "ignition": {
+    "version": "3.6.0"
+  },
+  "passwd": {
+    "groups": [
+      {
+        "gid": 2000,
+        "name": "tailscaled"
+      }
+    ],
+    "users": [
+      {
+        "name": "core",
+        "passwordHash": "$y$j9T$dcjUqFiNL2vJeJOJ9JLkB1$toTWUqsTeNp3K9.5H8l3KIfHCSP2pp7BKvogYI0Dr.5",
+        "sshAuthorizedKeys": [
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIQowLl5Bzn87ig+Gs7Ze5kWODRTdHiD+V8sOCwOx16Z"
+        ]
+      },
+      {
+        "groups": [
+          "tss"
+        ],
+        "name": "tailscaled",
+        "noCreateHome": true,
+        "primaryGroup": "tailscaled",
+        "shell": "/bin/nologin",
+        "uid": 2000
+      }
+    ]
+  },
+  "storage": {
+    "files": [
+      {
+        "overwrite": true,
+        "path": "/etc/default/tailscale",
+        "contents": {
+          "compression": "",
+          "source": "data:,TS_AUTH_KEY%3D%22tskey-auth-xxx%22%0ATS_ROUTES%3D%22192.168.0.0%2F24%22%0A"
+        },
+        "mode": 416
+      },
+      {
+        "overwrite": true,
+        "path": "/etc/default/tailscaled",
+        "contents": {
+          "compression": "",
+          "source": "data:,FLAGS%3D%22--statedir%3D%2Fvar%2Flib%2Ftailscale%22%0APORT%3D%2241641%22%0ASTATE_DIRECTORY%3D%22%2Fvar%2Flib%2Ftailscale%22%0A"
+        },
+        "mode": 416
+      },
+      {
+        "overwrite": true,
+        "path": "/etc/hostname",
+        "contents": {
+          "compression": "",
+          "source": "data:,dreamquest"
+        },
+        "mode": 420
+      },
+      {
+        "overwrite": true,
+        "path": "/etc/polkit-1/rules.d/99-tailscaled.rules",
+        "contents": {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/5yQvW4CMRCE+3uK7e6QcpZSI8q8AKlSOvY4OGxstD80gXePOCBKG6bY3WJmtPoOnffVQsx564ypeEtWe5visp5I/f0TyVb0PRAR1ULTclx09YSaabOhsctHKAJk6N76IQi08xHPobDrbk4x7aAjnU7/zStszijR2Wbpbni4pOmskCPk8T/6V6xNxyV7h3IHc2MVXCFLlcXKmiIjj3+9FwnMpdEN/xbqbOHt5XX96zoP13lerYefAAAA///ZYcYApgEAAA=="
+        },
+        "mode": 420
+      },
+      {
+        "overwrite": true,
+        "path": "/etc/sysctl.d/99-tailscaled.conf",
+        "contents": {
+          "compression": "",
+          "source": "data:,net.ipv4.conf.all.forwarding%20%3D%201%0Anet.ipv6.conf.all.forwarding%20%3D%201%0A"
+        },
+        "mode": 420
+      },
+      {
+        "overwrite": true,
+        "path": "/etc/systemd/system/tailscaled.service.d/99-tailscaled.conf",
+        "contents": {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/2yTz2/aThDF7/4r9vA9fHug9NSbJVv8SFDAQgGUSlEULesXOmK9Y82OoW7V/u2VCSSO6Gnnfd6s50njfVxBDuTwlOTVlhB0ZGu7JU9KiOkoXz4Xk/VzPl7MCnNR9/lDMkZ3K/eej+mwxGEYoENtwrWhdSXVFyPHZPIDbqVWNO2VwybKMG4pDNWSj856lOa/X9N5frP6/d63FPy7dTBwHjY0dXIj3NTpu5XM2e2XkMjBetI2bRGTBSqWdozQPggpuu83ipNVcIHjUuhAHjvEE+ukVSy4CfqBrKv6LFnhdMRBhf0pQuwbt1yhr+8gAX7Ou3hNF1w2Hh+MpbBLA1vnEN/gqo2KKn1pvE/uEVXIaV6WghintiLfbS6fPs+Kydqcz69dUUzW81lx15WbYvbt7W5hK8TauvPoC76H9Urn+Be42szGq5vZ+ARfg4ys97m479RlawQxDVbpgJ49Ja+QNNsHPoZr/idznt3eZK5uBqgab5U4mKzEttmZbI9WKOxMVnVreDt4G9lDYbJ6j9ZkYo8DYpMJtsxqsni0dbKJkP4/kTxuAulTkr9o3xhwrVTRz9Pg+Dm+PopkjOiE6g6m60uvKbiEyXcIav6/tVIioPyU/A0AAP//5pVJJkoDAAA="
+        },
+        "mode": 420
+      }
+    ],
+    "links": [
+      {
+        "overwrite": true,
+        "path": "/etc/systemd/system/multi-user.target.wants/tailscaled.service",
+        "target": "/usr/lib/systemd/system/tailscaled.service"
+      }
+    ]
+  },
+  "systemd": {
+    "units": [
+      {
+        "contents": "[Install]\nWantedBy=multi-user.target\n\n[Service]\nExecStartPre=/usr/bin/curl --location --output /etc/yum.repos.d/tailscale.repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo\nExecStart=/usr/bin/rpm-ostree install --allow-inactive --apply-live --assumeyes tailscale\nExecStart=/bin/touch /var/lib/%N.stamp\nExecStart=/bin/systemctl --no-block reboot\nRemainAfterExit=yes\nType=oneshot\n\n[Unit]\nAfter=network-online.target\nBefore=zincati.service\nConditionPathExists=!/var/lib/%N.stamp\nDescription=rpm-ostree-install\nWants=network-online.target\n",
+        "enabled": true,
+        "name": "rpm-ostree-install.service"
+      },
+      {
+        "contents": "[Install]\nWantedBy=multi-user.target\n\n[Service]\nExecStart=/usr/bin/mkdir --parents /var/lib/tailscale\nExecStart=/usr/bin/chmod 0700 /var/lib/tailscale\nExecStart=/usr/bin/chown --recursive 2000:2000 /var/lib/tailscale\nExecStart=/usr/bin/sleep 5\nExecStart=/usr/sbin/bash -c '/usr/bin/ethtool --features $(ip route get 1.1.1.1 | head --lines 1 | awk \\'{print $5}\\') rx-gro-list off rx-udp-gro-forwarding on'\nRemainAfterExit=yes\nType=oneshot\n\n[Unit]\nAfter=network-online.target\nBefore=tailscaled.service\nDescription=tailscale-optimizations\nWants=network-online.target\n",
+        "enabled": true,
+        "name": "tailscale-optimizations.service"
+      },
+      {
+        "contents": "[Install]\nWantedBy=multi-user.target\n\n[Service]\nEnvironmentFile=/etc/default/tailscale\nExecStart=/usr/bin/tailscale up --advertise-exit-node --advertise-routes \"${TS_ROUTES}\" --auth-key \"${TS_AUTH_KEY}\"\nExecStop=/usr/bin/tailscale down\nRemainAfterExit=yes\nType=oneshot\n\n[Unit]\nAfter=rpm-ostree-install.service\nAfter=tailscaled.service\nDescription=tailscale\nWants=tailscaled.service\n",
+        "enabled": true,
+        "name": "tailscale.service"
+      }
+    ]
+  }
+}

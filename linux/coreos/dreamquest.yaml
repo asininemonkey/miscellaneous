@@ -1,0 +1,166 @@
+# yaml-language-server: $schema=https://relativ-it.github.io/Butane-Schemas/Butane-Schema.json
+---
+variant: fcos
+version: 1.7.0
+passwd:
+  groups:
+    - name: tailscaled
+      gid: 2000
+  users:
+    - name: core
+      password_hash: $y$j9T$dcjUqFiNL2vJeJOJ9JLkB1$toTWUqsTeNp3K9.5H8l3KIfHCSP2pp7BKvogYI0Dr.5 # password: core // mkpasswd --method=yescrypt
+      ssh_authorized_keys:
+        - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIQowLl5Bzn87ig+Gs7Ze5kWODRTdHiD+V8sOCwOx16Z
+    - name: tailscaled
+      groups:
+        - tss
+      no_create_home: true
+      primary_group: tailscaled
+      shell: /bin/nologin
+      uid: 2000
+storage:
+  files:
+    - path: /etc/default/tailscale
+      overwrite: true
+      mode: 416
+      contents:
+        inline: |
+          TS_AUTH_KEY="tskey-auth-xxx"
+          TS_ROUTES="192.168.0.0/24"
+    - path: /etc/default/tailscaled
+      overwrite: true
+      mode: 416
+      contents:
+        inline: |
+          FLAGS="--statedir=/var/lib/tailscale"
+          PORT="41641"
+          STATE_DIRECTORY="/var/lib/tailscale"
+    - path: /etc/hostname
+      overwrite: true
+      mode: 420
+      contents:
+        inline: dreamquest
+    - path: /etc/polkit-1/rules.d/99-tailscaled.rules
+      overwrite: true
+      mode: 420
+      contents:
+        inline: |
+          polkit.addRule(function(action, subject) {
+              if (
+                  action.id == 'org.freedesktop.resolve1.flush-caches' ||
+                  action.id == 'org.freedesktop.resolve1.set-default-route' ||
+                  action.id == 'org.freedesktop.resolve1.set-dns-servers' ||
+                  action.id == 'org.freedesktop.resolve1.set-domains'
+              ) {
+                  if (subject.user == 'tailscaled') {
+                      return polkit.Result.YES;
+                  }
+              }
+          });
+    - path: /etc/sysctl.d/99-tailscaled.conf
+      overwrite: true
+      mode: 420
+      contents:
+        inline: |
+          net.ipv4.conf.all.forwarding = 1
+          net.ipv6.conf.all.forwarding = 1
+    - path: /etc/systemd/system/tailscaled.service.d/99-tailscaled.conf
+      overwrite: true
+      mode: 420
+      contents:
+        inline: |
+          [Service]
+          AmbientCapabilities=CAP_NET_ADMIN CAP_NET_RAW
+          DeviceAllow=/dev/net/tun
+          DeviceAllow=/dev/tpmrm0 rw
+          ExecStart=
+          ExecStart=/usr/sbin/tailscaled ${FLAGS}
+          ExecStartPre=/usr/sbin/tailscaled --cleanup
+          Group=tailscaled
+          LockPersonality=yes
+          MemoryDenyWriteExecute=yes
+          NoNewPrivileges=yes
+          PrivateMounts=yes
+          PrivateTmp=yes
+          ProtectControlGroups=yes
+          ProtectHome=yes
+          ProtectKernelLogs=yes
+          ProtectKernelModules=yes
+          ProtectProc=noaccess
+          ProtectSystem=full
+          RestrictAddressFamilies=AF_INET AF_INET6 AF_NETLINK AF_UNIX
+          RestrictNamespaces=yes
+          RestrictRealtime=yes
+          RestrictSUIDSGID=yes
+          SystemCallArchitectures=native
+          SystemCallFilter=@known
+          SystemCallFilter=~@clock @cpu-emulation @debug @keyring @mount @mount @obsolete @pkey @raw-io @reboot @swap
+          User=tailscaled
+
+          [Unit]
+          After=tailscale-optimizations.service
+          Description=Tailscale Node Agent (Hardened)
+  links:
+    - overwrite: true
+      path: /etc/systemd/system/multi-user.target.wants/tailscaled.service
+      target: /usr/lib/systemd/system/tailscaled.service
+systemd:
+  units:
+    - name: rpm-ostree-install.service
+      enabled: true
+      contents: |
+        [Install]
+        WantedBy=multi-user.target
+
+        [Service]
+        ExecStartPre=/usr/bin/curl --location --output /etc/yum.repos.d/tailscale.repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+        ExecStart=/usr/bin/rpm-ostree install --allow-inactive --apply-live --assumeyes tailscale
+        ExecStart=/bin/touch /var/lib/%N.stamp
+        ExecStart=/bin/systemctl --no-block reboot
+        RemainAfterExit=yes
+        Type=oneshot
+
+        [Unit]
+        After=network-online.target
+        Before=zincati.service
+        ConditionPathExists=!/var/lib/%N.stamp
+        Description=rpm-ostree-install
+        Wants=network-online.target
+    - name: tailscale-optimizations.service
+      enabled: true
+      contents: |
+        [Install]
+        WantedBy=multi-user.target
+
+        [Service]
+        ExecStart=/usr/bin/mkdir --parents /var/lib/tailscale
+        ExecStart=/usr/bin/chmod 0700 /var/lib/tailscale
+        ExecStart=/usr/bin/chown --recursive 2000:2000 /var/lib/tailscale
+        ExecStart=/usr/bin/sleep 5
+        ExecStart=/usr/sbin/bash -c '/usr/bin/ethtool --features $(ip route get 1.1.1.1 | head --lines 1 | awk \'{print $5}\') rx-gro-list off rx-udp-gro-forwarding on'
+        RemainAfterExit=yes
+        Type=oneshot
+
+        [Unit]
+        After=network-online.target
+        Before=tailscaled.service
+        Description=tailscale-optimizations
+        Wants=network-online.target
+    - name: tailscale.service
+      enabled: true
+      contents: |
+        [Install]
+        WantedBy=multi-user.target
+
+        [Service]
+        EnvironmentFile=/etc/default/tailscale
+        ExecStart=/usr/bin/tailscale up --advertise-exit-node --advertise-routes "${TS_ROUTES}" --auth-key "${TS_AUTH_KEY}"
+        ExecStop=/usr/bin/tailscale down
+        RemainAfterExit=yes
+        Type=oneshot
+
+        [Unit]
+        After=rpm-ostree-install.service
+        After=tailscaled.service
+        Description=tailscale
+        Wants=tailscaled.service
